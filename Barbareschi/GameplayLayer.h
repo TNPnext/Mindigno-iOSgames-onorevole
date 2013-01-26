@@ -14,6 +14,7 @@
 #import "SneakyButton.h"
 #import "SneakyButtonSkinnedBase.h"
 #import "ColoredCircleSprite.h"
+#import "ColoredSquareSprite.h"
 
 @interface GameplayLayer : CCLayer {
     

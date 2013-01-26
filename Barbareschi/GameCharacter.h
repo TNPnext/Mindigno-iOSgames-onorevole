@@ -7,6 +7,8 @@
 @interface GameCharacter : GameObject {
     
     int characterHealth;
+    
+    CharacterStates prevCharacterState;
     CharacterStates characterState;
 }
 
@@ -14,5 +16,7 @@
 -(int)getWeaponDamage;
 
 @property (readwrite) int characterHealth;
-@property (readwrite) CharacterStates characterState; 
+@property (readwrite) CharacterStates prevCharacterState;
+@property (readwrite) CharacterStates characterState;
+
 @end

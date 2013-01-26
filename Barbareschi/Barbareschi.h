@@ -15,8 +15,6 @@
 @interface Barbareschi : GameCharacter {
     
     SneakyJoystick *joystick;
-    
-    BOOL prevAttackButtonActive;
     SneakyButton *attackButton;
     
     //

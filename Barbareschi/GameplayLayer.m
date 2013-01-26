@@ -15,9 +15,10 @@
 - (void) initJoystickAndButtons {
 
     SneakyJoystickSkinnedBase *joystickBase = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
-    [joystickBase setPosition: ccp(64, 64)];
-    [joystickBase setBackgroundSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 0, 0, 128) radius:64]];
-    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 255, 200) radius:32]];
+    [joystickBase setPosition: ccp(96, 64)];
+    [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size:CGSizeMake(64, 32)]];
+    //[joystickBase setBackgroundSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 128) radius:64]];
+    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:32]];
     
     joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 128, 128)];
     [joystick retain];
@@ -31,8 +32,8 @@
     SneakyButtonSkinnedBase *attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
     [attackButtonBase setPosition: ccp(400, 64)];
     
-    [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 255, 128) radius:32]];
-    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 0, 0, 128) radius:32]];
+    [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 150) radius:32]];
+    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:32]];
     
     attackButton = [[SneakyButton alloc] initWithRect: CGRectMake(0, 0, 128, 128)];
     [attackButton retain];

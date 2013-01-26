@@ -4,8 +4,9 @@
 #import "GameCharacter.h"
 
 @implementation GameCharacter
+
 @synthesize characterHealth;
-@synthesize characterState; 
+@synthesize prevCharacterState, characterState;
 
 -(void) dealloc { 
     [super dealloc];
