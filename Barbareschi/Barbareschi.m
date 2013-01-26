@@ -11,7 +11,7 @@
 
 @implementation Barbareschi
 
-@synthesize walkingAnimation;
+@synthesize walkingAnimation, attackPugnoAnimation, attackCalcioAnimation;
 @synthesize joystick, attackButton;
 
 /*
@@ -25,11 +25,16 @@
 
 -(void)applyJoystick:(SneakyJoystick *)aJoystick forTimeDelta:(float)deltaTime {
     
-    CGPoint scaledVelocity = ccpMult(aJoystick.velocity, 480.0f);
+    double constVelocity = 0.5;
+    if (aJoystick.velocity.x < 0){
+        constVelocity = -constVelocity;
+    }
     
+    double scaledVelocityX = constVelocity * 480.0f;
+
     CGPoint oldPosition = [self position];
     //Muovo solo lungo x
-    CGPoint newPosition = ccp(oldPosition.x + scaledVelocity.x * deltaTime,
+    CGPoint newPosition = ccp(oldPosition.x + scaledVelocityX * deltaTime,
                               oldPosition.y);
     
     [self setPosition:newPosition];
@@ -58,12 +63,18 @@
             break;
             
         case kStateAttacking:
-            [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"barba_10.png"]];
+            
+            if (attackWithPugno)
+                action = [CCAnimate actionWithAnimation: attackPugnoAnimation restoreOriginalFrame:NO];
+            else
+                action = [CCAnimate actionWithAnimation: attackCalcioAnimation restoreOriginalFrame:NO];
+            
+            attackWithPugno = !attackWithPugno;
+            
             break;
             
         case kStateWalking:
-            //Animazione che si ripete sempre.
-            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:walkingAnimation restoreOriginalFrame:NO]];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnimation restoreOriginalFrame:NO]];
             break;
             
         default:
@@ -112,6 +123,8 @@
     
     [self checkAndClampSpritePosition];
     
+    double sogliaJoystick = 0.9;
+    
     if ((self.characterState == kStateIdle) || (self.characterState == kStateWalking)) {
         
         if (attackButton.active) {
@@ -125,7 +138,7 @@
             
             [self changeState:kStateAttacking];
             
-        } else if (joystick.velocity.x != 0.0f) { // dpad moving
+        } else if (fabs(joystick.velocity.x) >= sogliaJoystick) { // dpad moving
             
             if (self.characterState != kStateWalking)
                 [self changeState:kStateWalking];
@@ -137,7 +150,9 @@
         }
         
     } else if (self.characterState == kStateAttacking) {
-        [self changeState: kStateIdle];
+        
+        if ([self numberOfRunningActions] == 0)
+            [self changeState: kStateIdle];
     }
     
     if ([self numberOfRunningActions] == 0) {
@@ -186,6 +201,10 @@
 -(void)initAnimations {
     
     [self setWalkingAnimation:[self loadPlistForAnimationWithName:@"walkingAnimation" andClassName:NSStringFromClass([self class])]];
+    
+    [self setAttackPugnoAnimation:[self loadPlistForAnimationWithName:@"attackPugnoAnimation" andClassName:NSStringFromClass([self class])]];
+    
+    [self setAttackCalcioAnimation:[self loadPlistForAnimationWithName:@"attackCalcioAnimation" andClassName:NSStringFromClass([self class])]];
 }
 
 
@@ -195,6 +214,8 @@
     attackButton = nil;
     
     [walkingAnimation release];
+    [attackPugnoAnimation release];
+    [attackCalcioAnimation release];
     
     [super dealloc];
 }
@@ -210,6 +231,7 @@
         
         self.gameObjectType = kBarbareschiType;
         
+        attackWithPugno = YES;
         self.prevCharacterState = kStateIdle;
         self.characterState = kStateIdle;
       

@@ -13,6 +13,8 @@
 		D93BE48216B3DF7600E541DB /* Barbareschi.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48116B3DF7600E541DB /* Barbareschi.m */; };
 		D93BE48516B3DF8200E541DB /* Iena.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48416B3DF8200E541DB /* Iena.m */; };
 		D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48716B3DF8F00E541DB /* Cameraman.m */; };
+		D93BE49816B444B000E541DB /* Cameraman.plist in Resources */ = {isa = PBXBuildFile; fileRef = D93BE49616B444B000E541DB /* Cameraman.plist */; };
+		D93BE49916B444B000E541DB /* Iena.plist in Resources */ = {isa = PBXBuildFile; fileRef = D93BE49716B444B000E541DB /* Iena.plist */; };
 		D9CD6B3316B17A3000CD3CFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */; };
 		D9CD6B3516B17A3000CD3CFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */; };
 		D9CD6B3716B17A3000CD3CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3616B17A3000CD3CFA /* OpenAL.framework */; };
@@ -156,6 +158,8 @@
 		D93BE48416B3DF8200E541DB /* Iena.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Iena.m; sourceTree = "<group>"; };
 		D93BE48616B3DF8F00E541DB /* Cameraman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cameraman.h; sourceTree = "<group>"; };
 		D93BE48716B3DF8F00E541DB /* Cameraman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cameraman.m; sourceTree = "<group>"; };
+		D93BE49616B444B000E541DB /* Cameraman.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cameraman.plist; sourceTree = "<group>"; };
+		D93BE49716B444B000E541DB /* Iena.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Iena.plist; sourceTree = "<group>"; };
 		D9CD6B2E16B17A3000CD3CFA /* Barbareschi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barbareschi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -435,10 +439,7 @@
 		D93BE47816B3DA7D00E541DB /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				D93BE47016B3DA0300E541DB /* GameObject.h */,
-				D93BE47116B3DA0300E541DB /* GameObject.m */,
-				D93BE47216B3DA0300E541DB /* GameCharacter.h */,
-				D93BE47316B3DA0300E541DB /* GameCharacter.m */,
+				D93BE48916B41B4C00E541DB /* Base */,
 				D93BE48016B3DF7600E541DB /* Barbareschi.h */,
 				D93BE48116B3DF7600E541DB /* Barbareschi.m */,
 				D93BE48316B3DF8200E541DB /* Iena.h */,
@@ -453,8 +454,21 @@
 			isa = PBXGroup;
 			children = (
 				D93BE47A16B3DB7D00E541DB /* Barbareschi.plist */,
+				D93BE49616B444B000E541DB /* Cameraman.plist */,
+				D93BE49716B444B000E541DB /* Iena.plist */,
 			);
 			name = Plist;
+			sourceTree = "<group>";
+		};
+		D93BE48916B41B4C00E541DB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D93BE47016B3DA0300E541DB /* GameObject.h */,
+				D93BE47116B3DA0300E541DB /* GameObject.m */,
+				D93BE47216B3DA0300E541DB /* GameCharacter.h */,
+				D93BE47316B3DA0300E541DB /* GameCharacter.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		D9CD6B2316B17A3000CD3CFA = {
@@ -954,6 +968,8 @@
 				D9CD6E3C16B2D18000CD3CFA /* GameplaySprite_default.plist in Resources */,
 				D9CD6E3D16B2D18000CD3CFA /* GameplaySprite_default.png in Resources */,
 				D93BE47B16B3DB7D00E541DB /* Barbareschi.plist in Resources */,
+				D93BE49816B444B000E541DB /* Cameraman.plist in Resources */,
+				D93BE49916B444B000E541DB /* Iena.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

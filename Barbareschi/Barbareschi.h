@@ -21,9 +21,15 @@
     CCSpriteFrame *standingFrame;
     
     CCAnimation *walkingAnimation;
+    
+    BOOL attackWithPugno;
+    CCAnimation *attackPugnoAnimation;
+    CCAnimation *attackCalcioAnimation;
 }
 
 @property (nonatomic, retain) CCAnimation *walkingAnimation;
+@property (nonatomic, retain) CCAnimation *attackPugnoAnimation;
+@property (nonatomic, retain) CCAnimation *attackCalcioAnimation;
 
 @property (nonatomic, assign) SneakyJoystick *joystick;
 @property (nonatomic, assign) SneakyButton *attackButton;
