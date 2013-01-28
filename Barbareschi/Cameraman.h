@@ -10,7 +10,11 @@
 #import "cocos2d.h"
 #import "GameCharacter.h"
 
+#define kCameraman_fermoFrameName @"cameraman_02.png"
+#define kCameraman_fermo_feritoFrameName @"cameraman_ferito_02.png"
+
 @interface Cameraman : GameCharacter {
+    
     
 }
 

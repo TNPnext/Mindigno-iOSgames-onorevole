@@ -19,10 +19,10 @@
     if (self) {
         
         BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-        [self addChild:backgroundLayer z:0];
+        [self addChild:backgroundLayer z: kBackgroundSpriteZValue];
         
         GameplayLayer *gameplayLayer = [GameplayLayer node];
-        [self addChild:gameplayLayer z:5];
+        [self addChild:gameplayLayer z: kGameplaySpriteBatchNodeZValue];
         
     }
     

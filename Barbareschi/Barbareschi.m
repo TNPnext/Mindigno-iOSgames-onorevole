@@ -11,7 +11,7 @@
 
 @implementation Barbareschi
 
-@synthesize walkingAnimation, attackPugnoAnimation, attackCalcioAnimation;
+@synthesize camminaAnimation, attaccaPugnoAnimation, attaccaCalcioAnimation, esultaAnimation;
 @synthesize joystick, attackButton;
 
 /*
@@ -46,7 +46,6 @@
     }
 }
 
-
 -(void)changeState:(CharacterStates)newState {
     
     [self stopAllActions];
@@ -58,23 +57,28 @@
     
     switch (newState) {
             
-        case kStateIdle:
-            [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"barba_10.png"]];
+        case kStateFermo:
+            [self setDisplayFrame: fermoFrame];
             break;
             
-        case kStateAttacking:
+        case kStateAttacco_pugno:
             
-            if (attackWithPugno)
-                action = [CCAnimate actionWithAnimation: attackPugnoAnimation restoreOriginalFrame:NO];
-            else
-                action = [CCAnimate actionWithAnimation: attackCalcioAnimation restoreOriginalFrame:NO];
-            
-            attackWithPugno = !attackWithPugno;
+            action = [CCAnimate actionWithAnimation: attaccaPugnoAnimation restoreOriginalFrame:NO];
             
             break;
             
-        case kStateWalking:
-            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnimation restoreOriginalFrame:NO]];
+        case kStateAttacco_calcio:
+            
+            action = [CCAnimate actionWithAnimation: attaccaCalcioAnimation restoreOriginalFrame:NO];
+        
+            break;
+            
+        case kStateCammina:
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: camminaAnimation restoreOriginalFrame:NO]];
+            break;
+            
+        case kStateEsulta:
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: esultaAnimation restoreOriginalFrame:NO]];
             break;
             
         default:
@@ -88,7 +92,7 @@
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects {
     
-    if (self.characterState == kStateDead)
+    if (self.characterState == kStateEsulta)
         return; // Nothing to do.
     
     // Check for collisions
@@ -125,40 +129,45 @@
     
     double sogliaJoystick = 0.9;
     
-    if ((self.characterState == kStateIdle) || (self.characterState == kStateWalking)) {
+    if ((self.characterState == kStateFermo) || (self.characterState == kStateCammina)) {
         
         if (attackButton.active) {
             
             ///Gestisco anche lo stato precedente in modo da prendere un solo click.
-            BOOL isClicked = self.prevCharacterState != kStateAttacking;
+            BOOL isClicked = self.prevCharacterState != kStateAttacco_pugno || self.prevCharacterState != kStateAttacco_calcio;
             
             if (isClicked) {
                 CCLOG(@"attackButton was pressed");
+                
+                if (attaccaConPugno)
+                    [self changeState: kStateAttacco_pugno];
+                else
+                    [self changeState: kStateAttacco_calcio];
+                
+                attaccaConPugno = !attaccaConPugno;
             }
-            
-            [self changeState:kStateAttacking];
             
         } else if (fabs(joystick.velocity.x) >= sogliaJoystick) { // dpad moving
             
-            if (self.characterState != kStateWalking)
-                [self changeState:kStateWalking];
+            if (self.characterState != kStateCammina)
+                [self changeState:kStateCammina];
             
             [self applyJoystick:joystick forTimeDelta:deltaTime];
         
         } else {
-            [self changeState: kStateIdle];
+            [self changeState: kStateFermo];
         }
         
-    } else if (self.characterState == kStateAttacking) {
+    } else if (self.characterState == kStateAttacco_pugno || self.characterState == kStateAttacco_calcio) {
         
         if ([self numberOfRunningActions] == 0)
-            [self changeState: kStateIdle];
+            [self changeState: kStateFermo];
     }
     
     if ([self numberOfRunningActions] == 0) {
         // Not playing an animation
         if (self.characterHealth <= 0.0f) {
-            [self changeState:kStateDead];
+            [self changeState: kStateEsulta];
         }
     }
 }
@@ -186,7 +195,7 @@
                vikingBoundingBox.size.width - xCropAmount,
                vikingBoundingBox.size.height - yCropAmount);
     
-    if (characterState == kStateWalking) {
+    if (characterState == kStateCammina) {
 		// Shrink the bounding box to 56% of height
         // 88 pixels on top on iPad
 		vikingBoundingBox = CGRectMake(vikingBoundingBox.origin.x,
@@ -200,11 +209,12 @@
 
 -(void)initAnimations {
     
-    [self setWalkingAnimation:[self loadPlistForAnimationWithName:@"walkingAnimation" andClassName:NSStringFromClass([self class])]];
+    fermoFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kBarbareschi_fermoFrameName];
     
-    [self setAttackPugnoAnimation:[self loadPlistForAnimationWithName:@"attackPugnoAnimation" andClassName:NSStringFromClass([self class])]];
-    
-    [self setAttackCalcioAnimation:[self loadPlistForAnimationWithName:@"attackCalcioAnimation" andClassName:NSStringFromClass([self class])]];
+    [self setCamminaAnimation: [self loadPlistForAnimationWithName:@"camminaAnimation" andClassName:NSStringFromClass([self class])]];
+    [self setAttaccaPugnoAnimation: [self loadPlistForAnimationWithName:@"attaccaPugnoAnimation" andClassName:NSStringFromClass([self class])]];
+    [self setAttaccaCalcioAnimation: [self loadPlistForAnimationWithName:@"attaccaCalcioAnimation" andClassName:NSStringFromClass([self class])]];
+    [self setEsultaAnimation: [self loadPlistForAnimationWithName:@"esultaAnimation" andClassName:NSStringFromClass([self class])]];
 }
 
 
@@ -213,9 +223,12 @@
     joystick = nil;
     attackButton = nil;
     
-    [walkingAnimation release];
-    [attackPugnoAnimation release];
-    [attackCalcioAnimation release];
+    //
+    
+    [camminaAnimation release];
+    [attaccaPugnoAnimation release];
+    [attaccaCalcioAnimation release];
+    [esultaAnimation release];
     
     [super dealloc];
 }
@@ -231,9 +244,9 @@
         
         self.gameObjectType = kBarbareschiType;
         
-        attackWithPugno = YES;
-        self.prevCharacterState = kStateIdle;
-        self.characterState = kStateIdle;
+        attaccaConPugno = YES;
+        self.prevCharacterState = kStateFermo;
+        self.characterState = kStateFermo;
       
         [self initAnimations];
     }

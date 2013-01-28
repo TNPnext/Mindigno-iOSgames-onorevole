@@ -1,16 +1,17 @@
 //  CommonProtocols.h
 
 typedef enum {
-    kStateIdle,
-    kStateWalking,
-    kStateAttacking,
-    kStateTakingDamage,
-    kStateDead
-} CharacterStates; // 1
+    kStateFermo,
+    kStateCammina,
+    kStateAttacco_pugno,
+    kStateAttacco_calcio,
+    kStateEsulta
+} CharacterStates;
 
 typedef enum {
     kObjectTypeNone,
     kBarbareschiType,
     kIenaType,
-    kCameramanType
+    kCameramanType,
+    kNuvolaType
 } GameObjectType;

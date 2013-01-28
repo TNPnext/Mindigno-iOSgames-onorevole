@@ -12,26 +12,31 @@
 #import "SneakyButton.h"
 #import "SneakyJoystick.h"
 
+#define kBarbareschi_fermoFrameName @"barbareschi_04.png"
+
 @interface Barbareschi : GameCharacter {
     
     SneakyJoystick *joystick;
     SneakyButton *attackButton;
     
     //
-    CCSpriteFrame *standingFrame;
+    CCSpriteFrame *fermoFrame;
+    CCAnimation *camminaAnimation;
     
-    CCAnimation *walkingAnimation;
+    BOOL attaccaConPugno;
+    CCAnimation *attaccaPugnoAnimation;
+    CCAnimation *attaccaCalcioAnimation;
     
-    BOOL attackWithPugno;
-    CCAnimation *attackPugnoAnimation;
-    CCAnimation *attackCalcioAnimation;
+    CCAnimation *esultaAnimation;
 }
-
-@property (nonatomic, retain) CCAnimation *walkingAnimation;
-@property (nonatomic, retain) CCAnimation *attackPugnoAnimation;
-@property (nonatomic, retain) CCAnimation *attackCalcioAnimation;
 
 @property (nonatomic, assign) SneakyJoystick *joystick;
 @property (nonatomic, assign) SneakyButton *attackButton;
+
+@property (nonatomic, retain) CCAnimation *camminaAnimation;
+@property (nonatomic, retain) CCAnimation *attaccaPugnoAnimation;
+@property (nonatomic, retain) CCAnimation *attaccaCalcioAnimation;
+
+@property (nonatomic, retain) CCAnimation *esultaAnimation;
 
 @end

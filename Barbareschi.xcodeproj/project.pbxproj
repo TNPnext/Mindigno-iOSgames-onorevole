@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		D93BE47416B3DA0300E541DB /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE47116B3DA0300E541DB /* GameObject.m */; };
 		D93BE47516B3DA0300E541DB /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE47316B3DA0300E541DB /* GameCharacter.m */; };
-		D93BE47B16B3DB7D00E541DB /* Barbareschi.plist in Resources */ = {isa = PBXBuildFile; fileRef = D93BE47A16B3DB7D00E541DB /* Barbareschi.plist */; };
 		D93BE48216B3DF7600E541DB /* Barbareschi.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48116B3DF7600E541DB /* Barbareschi.m */; };
 		D93BE48516B3DF8200E541DB /* Iena.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48416B3DF8200E541DB /* Iena.m */; };
 		D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48716B3DF8F00E541DB /* Cameraman.m */; };
-		D93BE49816B444B000E541DB /* Cameraman.plist in Resources */ = {isa = PBXBuildFile; fileRef = D93BE49616B444B000E541DB /* Cameraman.plist */; };
-		D93BE49916B444B000E541DB /* Iena.plist in Resources */ = {isa = PBXBuildFile; fileRef = D93BE49716B444B000E541DB /* Iena.plist */; };
 		D9CD6B3316B17A3000CD3CFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */; };
 		D9CD6B3516B17A3000CD3CFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */; };
 		D9CD6B3716B17A3000CD3CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3616B17A3000CD3CFA /* OpenAL.framework */; };
@@ -132,7 +129,6 @@
 		D9CD6CA516B18D9B00CD3CFA /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CA416B18D9B00CD3CFA /* BackgroundLayer.m */; };
 		D9CD6CAB16B18F9800CD3CFA /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CAA16B18F9800CD3CFA /* GameplayLayer.m */; };
 		D9CD6CAE16B1900E00CD3CFA /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CAD16B1900D00CD3CFA /* GameScene.m */; };
-		D9CD6CC416B1A3F800CD3CFA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CD6CC316B1A3F800CD3CFA /* background.png */; };
 		D9CD6CDC16B290A800CD3CFA /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CD016B290A800CD3CFA /* ColoredCircleSprite.m */; };
 		D9CD6CDD16B290A800CD3CFA /* ColoredSquareSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CD216B290A800CD3CFA /* ColoredSquareSprite.m */; };
 		D9CD6CDE16B290A800CD3CFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D9CD6CD316B290A800CD3CFA /* LICENSE */; };
@@ -140,8 +136,13 @@
 		D9CD6CE016B290A800CD3CFA /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CD716B290A800CD3CFA /* SneakyButtonSkinnedBase.m */; };
 		D9CD6CE116B290A800CD3CFA /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CD916B290A800CD3CFA /* SneakyJoystick.m */; };
 		D9CD6CE216B290A800CD3CFA /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD6CDB16B290A800CD3CFA /* SneakyJoystickSkinnedBase.m */; };
-		D9CD6E3C16B2D18000CD3CFA /* GameplaySprite_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9CD6E3A16B2D18000CD3CFA /* GameplaySprite_default.plist */; };
-		D9CD6E3D16B2D18000CD3CFA /* GameplaySprite_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CD6E3B16B2D18000CD3CFA /* GameplaySprite_default.png */; };
+		D9E4BE6F16B693E1009B6AB9 /* Nuvola.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4BE6E16B693E1009B6AB9 /* Nuvola.m */; };
+		D9E4BE7716B6C744009B6AB9 /* Barbareschi.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7416B6C744009B6AB9 /* Barbareschi.plist */; };
+		D9E4BE7816B6C744009B6AB9 /* Cameraman.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7516B6C744009B6AB9 /* Cameraman.plist */; };
+		D9E4BE7916B6C744009B6AB9 /* Iena.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7616B6C744009B6AB9 /* Iena.plist */; };
+		D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7B16B6C78C009B6AB9 /* background.png */; };
+		D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */; };
+		D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,15 +152,12 @@
 		D93BE47316B3DA0300E541DB /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
 		D93BE47616B3DA1900E541DB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D93BE47716B3DA2700E541DB /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
-		D93BE47A16B3DB7D00E541DB /* Barbareschi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Barbareschi.plist; sourceTree = "<group>"; };
 		D93BE48016B3DF7600E541DB /* Barbareschi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barbareschi.h; sourceTree = "<group>"; };
 		D93BE48116B3DF7600E541DB /* Barbareschi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barbareschi.m; sourceTree = "<group>"; };
 		D93BE48316B3DF8200E541DB /* Iena.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Iena.h; sourceTree = "<group>"; };
 		D93BE48416B3DF8200E541DB /* Iena.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Iena.m; sourceTree = "<group>"; };
 		D93BE48616B3DF8F00E541DB /* Cameraman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cameraman.h; sourceTree = "<group>"; };
 		D93BE48716B3DF8F00E541DB /* Cameraman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cameraman.m; sourceTree = "<group>"; };
-		D93BE49616B444B000E541DB /* Cameraman.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cameraman.plist; sourceTree = "<group>"; };
-		D93BE49716B444B000E541DB /* Iena.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Iena.plist; sourceTree = "<group>"; };
 		D9CD6B2E16B17A3000CD3CFA /* Barbareschi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barbareschi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -399,7 +397,6 @@
 		D9CD6CAA16B18F9800CD3CFA /* GameplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		D9CD6CAC16B1900D00CD3CFA /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		D9CD6CAD16B1900D00CD3CFA /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		D9CD6CC316B1A3F800CD3CFA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D9CD6CCF16B290A800CD3CFA /* ColoredCircleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColoredCircleSprite.h; path = JoystickClasses/ColoredCircleSprite.h; sourceTree = "<group>"; };
 		D9CD6CD016B290A800CD3CFA /* ColoredCircleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColoredCircleSprite.m; path = JoystickClasses/ColoredCircleSprite.m; sourceTree = "<group>"; };
 		D9CD6CD116B290A800CD3CFA /* ColoredSquareSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColoredSquareSprite.h; path = JoystickClasses/ColoredSquareSprite.h; sourceTree = "<group>"; };
@@ -413,8 +410,14 @@
 		D9CD6CD916B290A800CD3CFA /* SneakyJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SneakyJoystick.m; path = JoystickClasses/SneakyJoystick.m; sourceTree = "<group>"; };
 		D9CD6CDA16B290A800CD3CFA /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SneakyJoystickSkinnedBase.h; path = JoystickClasses/SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
 		D9CD6CDB16B290A800CD3CFA /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SneakyJoystickSkinnedBase.m; path = JoystickClasses/SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
-		D9CD6E3A16B2D18000CD3CFA /* GameplaySprite_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameplaySprite_default.plist; sourceTree = "<group>"; };
-		D9CD6E3B16B2D18000CD3CFA /* GameplaySprite_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplaySprite_default.png; sourceTree = "<group>"; };
+		D9E4BE6D16B693E1009B6AB9 /* Nuvola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nuvola.h; sourceTree = "<group>"; };
+		D9E4BE6E16B693E1009B6AB9 /* Nuvola.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nuvola.m; sourceTree = "<group>"; };
+		D9E4BE7416B6C744009B6AB9 /* Barbareschi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Barbareschi.plist; path = plistCharacter/Barbareschi.plist; sourceTree = "<group>"; };
+		D9E4BE7516B6C744009B6AB9 /* Cameraman.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cameraman.plist; path = plistCharacter/Cameraman.plist; sourceTree = "<group>"; };
+		D9E4BE7616B6C744009B6AB9 /* Iena.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Iena.plist; path = plistCharacter/Iena.plist; sourceTree = "<group>"; };
+		D9E4BE7B16B6C78C009B6AB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameplaySprite_default.plist; sourceTree = "<group>"; };
+		D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplaySprite_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +442,8 @@
 		D93BE47816B3DA7D00E541DB /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				D93BE47616B3DA1900E541DB /* Constants.h */,
+				D93BE47716B3DA2700E541DB /* CommonProtocols.h */,
 				D93BE48916B41B4C00E541DB /* Base */,
 				D93BE48016B3DF7600E541DB /* Barbareschi.h */,
 				D93BE48116B3DF7600E541DB /* Barbareschi.m */,
@@ -446,18 +451,20 @@
 				D93BE48416B3DF8200E541DB /* Iena.m */,
 				D93BE48616B3DF8F00E541DB /* Cameraman.h */,
 				D93BE48716B3DF8F00E541DB /* Cameraman.m */,
+				D9E4BE6D16B693E1009B6AB9 /* Nuvola.h */,
+				D9E4BE6E16B693E1009B6AB9 /* Nuvola.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
 		};
-		D93BE47916B3DA9200E541DB /* Plist */ = {
+		D93BE47916B3DA9200E541DB /* Plist Character */ = {
 			isa = PBXGroup;
 			children = (
-				D93BE47A16B3DB7D00E541DB /* Barbareschi.plist */,
-				D93BE49616B444B000E541DB /* Cameraman.plist */,
-				D93BE49716B444B000E541DB /* Iena.plist */,
+				D9E4BE7416B6C744009B6AB9 /* Barbareschi.plist */,
+				D9E4BE7616B6C744009B6AB9 /* Iena.plist */,
+				D9E4BE7516B6C744009B6AB9 /* Cameraman.plist */,
 			);
-			name = Plist;
+			name = "Plist Character";
 			sourceTree = "<group>";
 		};
 		D93BE48916B41B4C00E541DB /* Base */ = {
@@ -506,9 +513,7 @@
 		D9CD6B4216B17A3000CD3CFA /* Barbareschi */ = {
 			isa = PBXGroup;
 			children = (
-				D93BE47616B3DA1900E541DB /* Constants.h */,
-				D93BE47716B3DA2700E541DB /* CommonProtocols.h */,
-				D93BE47916B3DA9200E541DB /* Plist */,
+				D93BE47916B3DA9200E541DB /* Plist Character */,
 				D9CD6CCD16B2909700CD3CFA /* Joystick */,
 				D9CD6C9D16B17A3400CD3CFA /* GameConfig.h */,
 				D9CD6C9716B17A3400CD3CFA /* RootViewController.h */,
@@ -528,17 +533,11 @@
 		D9CD6B4316B17A3000CD3CFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D9CD6CA616B18E5300CD3CFA /* Grafica */,
-				D9CD6B4416B17A3000CD3CFA /* Default.png */,
-				D9CD6B4616B17A3000CD3CFA /* fps_images.png */,
-				D9CD6B4816B17A3000CD3CFA /* Icon-72.png */,
-				D9CD6B4A16B17A3000CD3CFA /* Icon-Small-50.png */,
-				D9CD6B4C16B17A3000CD3CFA /* Icon-Small.png */,
-				D9CD6B4E16B17A3000CD3CFA /* Icon-Small@2x.png */,
-				D9CD6B5016B17A3000CD3CFA /* Icon.png */,
-				D9CD6B5216B17A3000CD3CFA /* Icon@2x.png */,
+				D9E4BE8216B6C79A009B6AB9 /* Lancio */,
+				D9E4BE8116B6C791009B6AB9 /* Icona */,
+				D9E4BE8316B6C7D2009B6AB9 /* Cocos 2d */,
+				D9E4BE7A16B6C78C009B6AB9 /* Grafica */,
 				D9CD6B5416B17A3000CD3CFA /* Info.plist */,
-				D9CD6B5516B17A3000CD3CFA /* iTunesArtwork */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -854,16 +853,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D9CD6CA616B18E5300CD3CFA /* Grafica */ = {
-			isa = PBXGroup;
-			children = (
-				D9CD6E3A16B2D18000CD3CFA /* GameplaySprite_default.plist */,
-				D9CD6E3B16B2D18000CD3CFA /* GameplaySprite_default.png */,
-				D9CD6CC316B1A3F800CD3CFA /* background.png */,
-			);
-			name = Grafica;
-			sourceTree = "<group>";
-		};
 		D9CD6CBF16B1A0DC00CD3CFA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +891,47 @@
 				D9CD6CDB16B290A800CD3CFA /* SneakyJoystickSkinnedBase.m */,
 			);
 			name = Joystick;
+			sourceTree = "<group>";
+		};
+		D9E4BE7A16B6C78C009B6AB9 /* Grafica */ = {
+			isa = PBXGroup;
+			children = (
+				D9E4BE7B16B6C78C009B6AB9 /* background.png */,
+				D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */,
+				D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */,
+			);
+			name = Grafica;
+			path = Resources/Grafica;
+			sourceTree = "<group>";
+		};
+		D9E4BE8116B6C791009B6AB9 /* Icona */ = {
+			isa = PBXGroup;
+			children = (
+				D9CD6B5516B17A3000CD3CFA /* iTunesArtwork */,
+				D9CD6B4816B17A3000CD3CFA /* Icon-72.png */,
+				D9CD6B4A16B17A3000CD3CFA /* Icon-Small-50.png */,
+				D9CD6B4C16B17A3000CD3CFA /* Icon-Small.png */,
+				D9CD6B4E16B17A3000CD3CFA /* Icon-Small@2x.png */,
+				D9CD6B5016B17A3000CD3CFA /* Icon.png */,
+				D9CD6B5216B17A3000CD3CFA /* Icon@2x.png */,
+			);
+			name = Icona;
+			sourceTree = "<group>";
+		};
+		D9E4BE8216B6C79A009B6AB9 /* Lancio */ = {
+			isa = PBXGroup;
+			children = (
+				D9CD6B4416B17A3000CD3CFA /* Default.png */,
+			);
+			name = Lancio;
+			sourceTree = "<group>";
+		};
+		D9E4BE8316B6C7D2009B6AB9 /* Cocos 2d */ = {
+			isa = PBXGroup;
+			children = (
+				D9CD6B4616B17A3000CD3CFA /* fps_images.png */,
+			);
+			name = "Cocos 2d";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -963,13 +993,13 @@
 				D9CD6B5116B17A3000CD3CFA /* Icon.png in Resources */,
 				D9CD6B5316B17A3000CD3CFA /* Icon@2x.png in Resources */,
 				D9CD6B5616B17A3000CD3CFA /* iTunesArtwork in Resources */,
-				D9CD6CC416B1A3F800CD3CFA /* background.png in Resources */,
 				D9CD6CDE16B290A800CD3CFA /* LICENSE in Resources */,
-				D9CD6E3C16B2D18000CD3CFA /* GameplaySprite_default.plist in Resources */,
-				D9CD6E3D16B2D18000CD3CFA /* GameplaySprite_default.png in Resources */,
-				D93BE47B16B3DB7D00E541DB /* Barbareschi.plist in Resources */,
-				D93BE49816B444B000E541DB /* Cameraman.plist in Resources */,
-				D93BE49916B444B000E541DB /* Iena.plist in Resources */,
+				D9E4BE7716B6C744009B6AB9 /* Barbareschi.plist in Resources */,
+				D9E4BE7816B6C744009B6AB9 /* Cameraman.plist in Resources */,
+				D9E4BE7916B6C744009B6AB9 /* Iena.plist in Resources */,
+				D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */,
+				D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */,
+				D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1121,7 @@
 				D93BE48216B3DF7600E541DB /* Barbareschi.m in Sources */,
 				D93BE48516B3DF8200E541DB /* Iena.m in Sources */,
 				D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */,
+				D9E4BE6F16B693E1009B6AB9 /* Nuvola.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

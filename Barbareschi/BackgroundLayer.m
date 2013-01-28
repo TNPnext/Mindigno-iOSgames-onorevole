@@ -22,7 +22,7 @@
         
         [backgroundImg setPosition: ccp(screenSize.width/2, screenSize.height/2)];
         
-        [self addChild:backgroundImg z:0 tag:0];
+        [self addChild:backgroundImg z:kBackgroundSpriteZValue];
     }
     
     return self;

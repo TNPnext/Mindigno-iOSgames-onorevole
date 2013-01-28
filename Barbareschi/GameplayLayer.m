@@ -25,7 +25,7 @@
     
     [joystickBase setJoystick: joystick];
     
-    [self addChild: joystickBase];
+    [self addChild: joystickBase z: kControlSpriteZValue];
     
     //
     
@@ -41,7 +41,7 @@
     
     [attackButtonBase setButton: attackButton];
     
-    [self addChild: attackButtonBase];
+    [self addChild: attackButtonBase z: kControlSpriteZValue];
 }
 
 - (void) dealloc {
@@ -64,9 +64,9 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameplaySprite_default.plist"];
         spriteBatchNodeGamePlay = [CCSpriteBatchNode batchNodeWithFile:@"GameplaySprite_default.png"];
         
-        [self addChild: spriteBatchNodeGamePlay];
+        [self addChild: spriteBatchNodeGamePlay z: kGameplaySpriteBatchNodeZValue];
         
-        Barbareschi *barbareschi = [[Barbareschi alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"barba_10.png"]];
+        Barbareschi *barbareschi = [[Barbareschi alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kBarbareschi_fermoFrameName]];
         
         [barbareschi setJoystick: joystick];
         [barbareschi setAttackButton: attackButton];
