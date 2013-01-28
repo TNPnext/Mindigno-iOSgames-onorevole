@@ -11,55 +11,18 @@
 
 @implementation Iena
 
-/*
--(void)changeState:(CharacterStates)newState {
-    
-    [self stopAllActions];
-    id action = nil;
-    
-    CharacterStates oldState = [self characterState];
-    [self setPrevCharacterState: oldState];
-    [self setCharacterState: newState];
-    
-    switch (newState) {
-            
-        case kStateIdle:
-            [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"barba_10.png"]];
-            break;
-            
-        case kStateAttacking:
-            
-            if (attackWithPugno)
-                action = [CCAnimate actionWithAnimation: attackPugnoAnimation restoreOriginalFrame:NO];
-            else
-                action = [CCAnimate actionWithAnimation: attackCalcioAnimation restoreOriginalFrame:NO];
-            
-            attackWithPugno = !attackWithPugno;
-            
-            break;
-            
-        case kStateWalking:
-            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnimation restoreOriginalFrame:NO]];
-            break;
-            
-        default:
-            break;
-    }
-    
-    if (action != nil) {
-        [self runAction:action];
-    }
-}
-
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects {
     
-    if (self.characterState == kStateDead)
+    GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
+    
+    if (barbareschi.characterState == kStateEsulta)
         return; // Nothing to do.
     
     // Check for collisions
     // Change this to keep the object count from querying it each time
     CGRect myBoundingBox = [self adjustedBoundingBox];
     
+    /*
     for (GameCharacter *character in listOfGameObjects) {
         
         // No need to check collision with one's self
@@ -85,49 +48,10 @@
             }
         }
     }
+     */
     
     [self checkAndClampSpritePosition];
-    
-    double sogliaJoystick = 0.9;
-    
-    if ((self.characterState == kStateIdle) || (self.characterState == kStateWalking)) {
-        
-        if (attackButton.active) {
-            
-            ///Gestisco anche lo stato precedente in modo da prendere un solo click.
-            BOOL isClicked = self.prevCharacterState != kStateAttacking;
-            
-            if (isClicked) {
-                CCLOG(@"attackButton was pressed");
-            }
-            
-            [self changeState:kStateAttacking];
-            
-        } else if (fabs(joystick.velocity.x) >= sogliaJoystick) { // dpad moving
-            
-            if (self.characterState != kStateWalking)
-                [self changeState:kStateWalking];
-            
-            [self applyJoystick:joystick forTimeDelta:deltaTime];
-            
-        } else {
-            [self changeState: kStateIdle];
-        }
-        
-    } else if (self.characterState == kStateAttacking) {
-        
-        if ([self numberOfRunningActions] == 0)
-            [self changeState: kStateIdle];
-    }
-    
-    if ([self numberOfRunningActions] == 0) {
-        // Not playing an animation
-        if (self.characterHealth <= 0.0f) {
-            [self changeState:kStateDead];
-        }
-    }
 }
- */
 
 //TODO: da sistemare
 -(CGRect)adjustedBoundingBox {
@@ -216,11 +140,11 @@
     if(self) {
         
         self.gameObjectType = kIenaType;
+        self.characterHealth = 100;
         
         [self initAnimations];
     }
     return self;
 }
-
 
 @end

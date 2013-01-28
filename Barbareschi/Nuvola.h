@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameObject.h"
+#import "GameCharacter.h"
 
-@interface Nuvola : GameObject {
+#define kNuvolaGrandeFrameName @"nuvola_01.png"
+#define kNuvolaMediaFrameName @"nuvola_02.png"
+#define kNuvolaPiccolaFrameName @"nuvola_03.png"
+
+@interface Nuvola : GameCharacter {
     
 }
 

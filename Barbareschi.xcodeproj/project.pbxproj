@@ -445,6 +445,7 @@
 				D93BE47616B3DA1900E541DB /* Constants.h */,
 				D93BE47716B3DA2700E541DB /* CommonProtocols.h */,
 				D93BE48916B41B4C00E541DB /* Base */,
+				D93BE47916B3DA9200E541DB /* Plist Character */,
 				D93BE48016B3DF7600E541DB /* Barbareschi.h */,
 				D93BE48116B3DF7600E541DB /* Barbareschi.m */,
 				D93BE48316B3DF8200E541DB /* Iena.h */,
@@ -513,15 +514,14 @@
 		D9CD6B4216B17A3000CD3CFA /* Barbareschi */ = {
 			isa = PBXGroup;
 			children = (
-				D93BE47916B3DA9200E541DB /* Plist Character */,
 				D9CD6CCD16B2909700CD3CFA /* Joystick */,
 				D9CD6C9D16B17A3400CD3CFA /* GameConfig.h */,
 				D9CD6C9716B17A3400CD3CFA /* RootViewController.h */,
 				D9CD6C9816B17A3400CD3CFA /* RootViewController.m */,
 				D9CD6C9416B17A3400CD3CFA /* AppDelegate.h */,
 				D9CD6C9516B17A3400CD3CFA /* AppDelegate.m */,
-				D9CD6CC016B1A0E900CD3CFA /* Layers */,
 				D9CD6CBF16B1A0DC00CD3CFA /* Scenes */,
+				D9CD6CC016B1A0E900CD3CFA /* Layers */,
 				D93BE47816B3DA7D00E541DB /* GameObjects */,
 				D9CD6B4316B17A3000CD3CFA /* Resources */,
 				D9CD6B5716B17A3000CD3CFA /* libs */,
@@ -897,8 +897,8 @@
 			isa = PBXGroup;
 			children = (
 				D9E4BE7B16B6C78C009B6AB9 /* background.png */,
-				D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */,
 				D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */,
+				D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */,
 			);
 			name = Grafica;
 			path = Resources/Grafica;

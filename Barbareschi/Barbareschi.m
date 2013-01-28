@@ -14,14 +14,14 @@
 @synthesize camminaAnimation, attaccaPugnoAnimation, attaccaCalcioAnimation, esultaAnimation;
 @synthesize joystick, attackButton;
 
-/*
 -(int)getWeaponDamage {
-    if (isCarryingMallet) {
-        return kVikingMalletDamage;
+    
+    //Verso destra sta danneggiando la iena. Verso sinistra il cameraman.
+    if (self.flipX) {
+        return kBarbareschiIenaDamage;
     }
-    return kVikingFistDamage;
+    return kBarbareschiCameramanDamage;
 }
- */
 
 -(void)applyJoystick:(SneakyJoystick *)aJoystick forTimeDelta:(float)deltaTime {
     
@@ -39,6 +39,7 @@
     
     [self setPosition:newPosition];
     
+    //Verso destra, flipX è YES.
     if (oldPosition.x > newPosition.x) {
         self.flipX = YES;
     } else {
@@ -164,12 +165,14 @@
             [self changeState: kStateFermo];
     }
     
+    /*
     if ([self numberOfRunningActions] == 0) {
         // Not playing an animation
         if (self.characterHealth <= 0.0f) {
             [self changeState: kStateEsulta];
         }
     }
+     */
 }
 
 //TODO: da sistemare

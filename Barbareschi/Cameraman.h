@@ -15,7 +15,16 @@
 
 @interface Cameraman : GameCharacter {
     
+    NSArray *fermoFrameArray;
     
+    NSArray *camminaAnimationArray;
+    NSArray *indietreggiaAnimationArray;
+    NSArray *pre_colpitoAnimationArray;
+    NSArray *colpito_pugnoAnimationArray;
+    NSArray *colpito_calcioAnimationArray;
+    NSArray *minacciatoAnimationArray;
+    
+    int indiceAnimazione;
 }
 
 @end
