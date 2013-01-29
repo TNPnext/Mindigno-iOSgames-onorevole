@@ -7,7 +7,7 @@
 		<key>filenamePrefix</key>
 		<string>iena_</string>
 		<key>delay</key>
-		<real>0.15</real>
+		<real>0.18</real>
 		<key>animationFrames</key>
 		<string>03,06</string>
 	</dict>
@@ -16,7 +16,7 @@
 		<key>filenamePrefix</key>
 		<string>iena_</string>
 		<key>delay</key>
-		<real>0.15</real>
+		<real>0.18</real>
 		<key>animationFrames</key>
 		<string>04,05</string>
 	</dict>
@@ -34,7 +34,7 @@
 		<key>filenamePrefix</key>
 		<string>iena_</string>
 		<key>delay</key>
-		<real>0.15</real>
+		<real>0.1</real>
 		<key>animationFrames</key>
 		<string>01</string>
 	</dict>
@@ -43,7 +43,7 @@
 		<key>filenamePrefix</key>
 		<string>iena_</string>
 		<key>delay</key>
-		<real>0.15</real>
+		<real>0.1</real>
 		<key>animationFrames</key>
 		<string>02</string>
 	</dict>

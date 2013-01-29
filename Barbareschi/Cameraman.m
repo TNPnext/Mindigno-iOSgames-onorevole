@@ -134,6 +134,9 @@
         self.gameObjectType = kCameramanType;
         self.characterHealth = 100;
         
+        indiceAnimazione = 0;
+
+        
         [self initAnimations];
     }
     return self;

@@ -11,44 +11,141 @@
 
 @implementation Iena
 
+- (void)spostatiVersoSx:(BOOL)yOrNot barbareschi:(GameObject*)barbareschi conTempo:(ccTime)deltaTime {
+
+    double constVelocity = -0.6;
+    
+    if (!yOrNot) {
+        constVelocity = -constVelocity;
+    }
+    
+    double scaledVelocityX = constVelocity * 480.0f;
+    
+    CGPoint oldPosition = [self position];
+    //Muovo solo lungo x
+    CGPoint newPosition = ccp(oldPosition.x + scaledVelocityX * deltaTime,
+                              oldPosition.y);
+    
+    CGRect myBox = [self adjustedBoundingBox];
+    CGRect characterBox = [barbareschi adjustedBoundingBox];
+    
+    //Se non c'è collisione imposto la nuova posizione. Altrimenti lascio quella attuale.
+    if (!CGRectIntersectsRect(myBox, characterBox)) {
+        [self setPosition: newPosition];
+    }
+}
+
+-(void)changeState:(CharacterStates)newState {
+    
+    [self stopAllActions];
+    
+    CCAnimation *animation = nil;
+    id action = nil;
+    
+    CharacterStates oldState = [self characterState];
+    [self setPrevCharacterState: oldState];
+    [self setCharacterState: newState];
+    
+    switch (newState) {
+            
+        case kStateFermo:
+            [self setDisplayFrame: [fermoFrameArray objectAtIndex: indiceAnimazione]];
+            break;
+            
+        case kStateCammina:
+            animation = [camminaAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
+            
+            break;
+            
+        case kStateIndietreggia:
+            animation = [indietreggiaAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
+            
+            break;
+            
+        case kStateMinacciato:
+            animation = [minacciataAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
+            break;
+            
+        case kStatePre_colpito:
+            animation = [pre_colpitaAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
+            break;
+            
+        case kStateAttaccato_conPugno:
+            animation = [colpita_pugnoAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
+            break;
+            
+        case kStateAttaccato_conCalcio:
+            animation = [colpita_calcioAnimationArray objectAtIndex: indiceAnimazione];
+            action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
+            break;
+            
+        default:
+            break;
+    }
+    
+    if (action != nil) {
+        [self runAction:action];
+    }
+}
+
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
     GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
+    CharacterStates barbareschiState = barbareschi.characterState;
     
-    if (barbareschi.characterState == kStateEsulta)
+    if (barbareschiState == kStateEsulta)
         return; // Nothing to do.
+   
+    CGRect myBox = [self adjustedBoundingBox];
+    CGRect characterBox = [barbareschi adjustedBoundingBox];
     
-    // Check for collisions
-    // Change this to keep the object count from querying it each time
-    CGRect myBoundingBox = [self adjustedBoundingBox];
+    BOOL versoSinistra = [barbareschi flipX];    
+    if (barbareschiState == kStateCammina && versoSinistra) {
+        
+        [self spostatiVersoSx:YES barbareschi:barbareschi conTempo:deltaTime];
+        
+        if (self.characterState != kStateCammina)
+            [self changeState:kStateCammina];
     
-    /*
-    for (GameCharacter *character in listOfGameObjects) {
+    } else if (barbareschiState == kStateCammina && !versoSinistra) {
         
-        // No need to check collision with one's self
-        if ([character tag] == kBarbareschiSpriteTagValue)
-            continue;
+        [self spostatiVersoSx:NO barbareschi:barbareschi conTempo:deltaTime];
         
-        CGRect characterBox = [character adjustedBoundingBox];
+        if (self.characterState != kStateIndietreggia)
+            [self changeState:kStateIndietreggia];
+    
+    } else if (barbareschiState == kStateFermo && versoSinistra) {
+
+        [self changeState: kStateFermo];
         
-        if (CGRectIntersectsRect(myBoundingBox, characterBox)) {
+    } else if (barbareschiState == kStateFermo && !versoSinistra) {
+        
+        //Se collide
+        if (CGRectIntersectsRect(myBox, characterBox)) {
+            if ([self numberOfRunningActions] == 0)
+                [self changeState: kStatePre_colpito];
             
-            // Remove the PhaserBullet from the scene
-            if ([character gameObjectType] == kIenaType) {
-                
-                //[self changeState:kStateTakingDamage];
-                //[character changeState:kStateDead];
-                
-            } else if ([character gameObjectType] == kCameramanType) {
-                
-                //[self changeState:kStateIdle];
-                // Remove the Mallet from the scene
-                //[character changeState:kStateDead];
-                
-            }
+        } else {
+            [self changeState: kStateMinacciato];
+        }
+        
+    } else if (barbareschiState == kStateAttacco_pugno && !versoSinistra) {
+        //Se collide
+        if (CGRectIntersectsRect(myBox, characterBox)) {
+            [self changeState: kStateAttaccato_conPugno];
+        }
+
+    } else if (barbareschiState == kStateAttacco_calcio && !versoSinistra) {
+        //Se collide
+        if (CGRectIntersectsRect(myBox, characterBox)) {
+            [self changeState: kStateAttaccato_conCalcio];
         }
     }
-     */
     
     [self checkAndClampSpritePosition];
 }
@@ -133,6 +230,8 @@
         
         self.gameObjectType = kIenaType;
         self.characterHealth = 100;
+        
+        indiceAnimazione = 0;
         
         [self initAnimations];
     }

@@ -68,13 +68,11 @@
             break;
             
         case kStateAttacco_pugno:
-            
             action = [CCAnimate actionWithAnimation: attaccaPugnoAnimation restoreOriginalFrame:NO];
             
             break;
             
         case kStateAttacco_calcio:
-            
             action = [CCAnimate actionWithAnimation: attaccaCalcioAnimation restoreOriginalFrame:NO];
         
             break;
@@ -108,7 +106,7 @@
     //[self checkAndClampSpritePosition];
     
     //Da 0 a 1
-    double sogliaJoystick = 0.9;
+    double sogliaJoystick = 0.8;
     
     if ((self.characterState == kStateFermo) || (self.characterState == kStateCammina)) {
         

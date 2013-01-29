@@ -82,8 +82,8 @@
         [barbareschi setScaleX:scaleFactor];
         [barbareschi setScaleY:scaleFactor];
         
-        [barbareschi setAnchorPoint:CGPointMake(0, 0)];
-        [barbareschi setPosition: ccp(screenSize.width/2-40, h_position)];
+        [barbareschi setAnchorPoint:CGPointMake(0.5f, 0)];
+        [barbareschi setPosition: ccp(screenSize.width/2, h_position)];
         
         [spriteBatchNodeGamePlay addChild:barbareschi z:kBarbareschiSpriteZValue tag:kBarbareschiSpriteTagValue];
     
@@ -94,8 +94,8 @@
         [iena setScaleX:scaleFactor];
         [iena setScaleY:scaleFactor];
         
-        [iena setAnchorPoint:CGPointMake(0, 0)];
-        [iena setPosition: ccp(screenSize.width-115.0f, h_position)];
+        [iena setAnchorPoint:CGPointMake(0.5f, 0)];
+        [iena setPosition: ccp(screenSize.width-56.0f, h_position)];
         
         [spriteBatchNodeGamePlay addChild:iena z: kGameplaySpriteBatchNodeZValue tag:kIenaSpriteTagValue];
         
@@ -106,8 +106,8 @@
         [cameraman setScaleX:scaleFactor];
         [cameraman setScaleY:scaleFactor];
         
-        [cameraman setAnchorPoint:CGPointMake(0, 0)];
-        [cameraman setPosition: ccp(0.0f, h_position)];
+        [cameraman setAnchorPoint:CGPointMake(0.5f, 0)];
+        [cameraman setPosition: ccp(50.0f, h_position)];
         
         [spriteBatchNodeGamePlay addChild:cameraman z: kGameplaySpriteBatchNodeZValue tag:kCameramanSpriteTagValue];
         
