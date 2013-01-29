@@ -24,6 +24,9 @@
     //
     
     CCSpriteBatchNode *spriteBatchNodeGamePlay;
+    
+    CCSprite *lifeBarCameraman;
+    CCSprite *lifeBarIena;
 }
 
 @end

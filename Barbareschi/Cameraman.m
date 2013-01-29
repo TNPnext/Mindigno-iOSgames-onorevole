@@ -11,7 +11,7 @@
 
 @implementation Cameraman
 
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects {
+-(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
     GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
     
@@ -53,40 +53,32 @@
     [self checkAndClampSpritePosition];
 }
 
-//TODO: da sistemare
 -(CGRect)adjustedBoundingBox {
     
     // Adjust the bouding box to the size of the sprite
     // without the transparent space
-    CGRect vikingBoundingBox = [self boundingBox];
-    float xOffset;
-    float xCropAmount = vikingBoundingBox.size.width * 0.5482f;
-    float yCropAmount = vikingBoundingBox.size.height * 0.095f;
+    CGRect boundingBox = [super boundingBox];
     
-    if ([self flipX] == NO) {
-        // Viking is facing to the rigth, back is on the left
-        xOffset = vikingBoundingBox.size.width * 0.1566f;
-    } else {
-        // Viking is facing to the left; back is facing right
-        xOffset = vikingBoundingBox.size.width * 0.4217f;
-    }
-    vikingBoundingBox =
-    CGRectMake(vikingBoundingBox.origin.x + xOffset,
-               vikingBoundingBox.origin.y,
-               vikingBoundingBox.size.width - xCropAmount,
-               vikingBoundingBox.size.height - yCropAmount);
+    float xOffset = boundingBox.size.width * 0.0f;
     
-    if (characterState == kStateFermo) {
-		// Shrink the bounding box to 56% of height
-        // 88 pixels on top on iPad
-		vikingBoundingBox = CGRectMake(vikingBoundingBox.origin.x,
-									   vikingBoundingBox.origin.y,
-									   vikingBoundingBox.size.width,
-									   vikingBoundingBox.size.height * 0.56f);
-	}
+    float xCropAmount = boundingBox.size.width * 0.05f;
+    float yCropAmount = boundingBox.size.height * 0.0f;
     
-    return vikingBoundingBox;
+    boundingBox = CGRectMake(boundingBox.origin.x + xOffset,
+                             boundingBox.origin.y,
+                             boundingBox.size.width - xCropAmount,
+                             boundingBox.size.height - yCropAmount);
+    
+    return boundingBox;
 }
+
+//Override CCNODE per la visualizzazione dell'adjustedBoundingBox.
+- (CGRect) boundingBox {
+    
+    CGRect ret = [self adjustedBoundingBox];
+    return CC_RECT_PIXELS_TO_POINTS( ret );
+}
+//
 
 -(void)initAnimations {
     

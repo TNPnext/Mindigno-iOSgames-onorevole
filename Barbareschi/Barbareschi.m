@@ -8,7 +8,6 @@
 
 #import "Barbareschi.h"
 
-
 @implementation Barbareschi
 
 @synthesize camminaAnimation, attaccaPugnoAnimation, attaccaCalcioAnimation, esultaAnimation;
@@ -17,13 +16,13 @@
 -(int)getWeaponDamage {
     
     //Verso destra sta danneggiando la iena. Verso sinistra il cameraman.
-    if (self.flipX) {
+    if (!self.flipX) {
         return kBarbareschiIenaDamage;
     }
     return kBarbareschiCameramanDamage;
 }
 
--(void)applyJoystick:(SneakyJoystick *)aJoystick forTimeDelta:(float)deltaTime {
+-(void)applyJoystick:(SneakyJoystick *)aJoystick forTimeDelta:(float)deltaTime character:(GameObject*)character {
     
     double constVelocity = 0.5;
     if (aJoystick.velocity.x < 0){
@@ -37,10 +36,16 @@
     CGPoint newPosition = ccp(oldPosition.x + scaledVelocityX * deltaTime,
                               oldPosition.y);
     
-    [self setPosition:newPosition];
+    CGRect myBox = [self adjustedBoundingBox];
+    CGRect characterBox = [character adjustedBoundingBox];
     
-    //Verso destra, flipX è YES.
-    if (oldPosition.x > newPosition.x) {
+    //Se non c'è collisione imposto la nuova posizione. Altrimenti lascio quella attuale.
+    if (!CGRectIntersectsRect(myBox, characterBox)) {
+        [self setPosition: newPosition];
+    }
+    
+    //Verso destra, flipX è NO.
+    if (oldPosition.x >= newPosition.x) {
         self.flipX = YES;
     } else {
         self.flipX = NO;
@@ -91,43 +96,18 @@
     }
 }
 
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects {
+-(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
     if (self.characterState == kStateEsulta)
         return; // Nothing to do.
     
-    // Check for collisions
-    // Change this to keep the object count from querying it each time
-    CGRect myBoundingBox = [self adjustedBoundingBox];
+    GameCharacter *iena = (GameCharacter*)[[self parent] getChildByTag: kIenaSpriteTagValue];
+    GameCharacter *cameraman = (GameCharacter*)[[self parent] getChildByTag: kCameramanSpriteTagValue];
     
-    for (GameCharacter *character in listOfGameObjects) {
-        
-        // No need to check collision with one's self
-        if ([character tag] == kBarbareschiSpriteTagValue)
-            continue;
-        
-        CGRect characterBox = [character adjustedBoundingBox];
-        
-        if (CGRectIntersectsRect(myBoundingBox, characterBox)) {
-            
-            // Remove the PhaserBullet from the scene
-            if ([character gameObjectType] == kIenaType) {
-                
-                //[self changeState:kStateTakingDamage];
-                //[character changeState:kStateDead];
-                
-            } else if ([character gameObjectType] == kCameramanType) {
-                
-                //[self changeState:kStateIdle];
-                // Remove the Mallet from the scene
-                //[character changeState:kStateDead];
-                
-            }
-        }
-    }
+    //Non serve perchè fanno da limite la iena e il cameraman
+    //[self checkAndClampSpritePosition];
     
-    [self checkAndClampSpritePosition];
-    
+    //Da 0 a 1
     double sogliaJoystick = 0.9;
     
     if ((self.characterState == kStateFermo) || (self.characterState == kStateCammina)) {
@@ -148,12 +128,16 @@
                 attaccaConPugno = !attaccaConPugno;
             }
             
-        } else if (fabs(joystick.velocity.x) >= sogliaJoystick) { // dpad moving
+        } else if (fabs(joystick.velocity.x) >= sogliaJoystick) {
             
             if (self.characterState != kStateCammina)
                 [self changeState:kStateCammina];
             
-            [self applyJoystick:joystick forTimeDelta:deltaTime];
+            if (![self flipX]) {
+                [self applyJoystick:joystick forTimeDelta:deltaTime character:iena];
+            } else {
+                [self applyJoystick:joystick forTimeDelta:deltaTime character:cameraman];
+            }
         
         } else {
             [self changeState: kStateFermo];
@@ -165,50 +149,47 @@
             [self changeState: kStateFermo];
     }
     
-    /*
     if ([self numberOfRunningActions] == 0) {
-        // Not playing an animation
-        if (self.characterHealth <= 0.0f) {
+        if ([iena characterHealth] <= 0.0f && [cameraman characterHealth] <= 0.0f) {
             [self changeState: kStateEsulta];
         }
     }
-     */
 }
 
-//TODO: da sistemare
 -(CGRect)adjustedBoundingBox {
     
     // Adjust the bouding box to the size of the sprite
     // without the transparent space
-    CGRect vikingBoundingBox = [self boundingBox];
+    CGRect boundingBox = [super boundingBox];
+    
     float xOffset;
-    float xCropAmount = vikingBoundingBox.size.width * 0.5482f;
-    float yCropAmount = vikingBoundingBox.size.height * 0.095f;
     
-    if ([self flipX] == NO) {
-        // Viking is facing to the rigth, back is on the left
-        xOffset = vikingBoundingBox.size.width * 0.1566f;
+    if (![self flipX]) {
+        // Is facing to the rigth
+        xOffset = boundingBox.size.width * 0.16f;
     } else {
-        // Viking is facing to the left; back is facing right
-        xOffset = vikingBoundingBox.size.width * 0.4217f;
+        // Is facing to the left
+        xOffset = boundingBox.size.width * 0.24f;
     }
-    vikingBoundingBox =
-    CGRectMake(vikingBoundingBox.origin.x + xOffset,
-               vikingBoundingBox.origin.y,
-               vikingBoundingBox.size.width - xCropAmount,
-               vikingBoundingBox.size.height - yCropAmount);
     
-    if (characterState == kStateCammina) {
-		// Shrink the bounding box to 56% of height
-        // 88 pixels on top on iPad
-		vikingBoundingBox = CGRectMake(vikingBoundingBox.origin.x,
-									   vikingBoundingBox.origin.y,
-									   vikingBoundingBox.size.width,
-									   vikingBoundingBox.size.height * 0.56f);
-	}
+    float xCropAmount = boundingBox.size.width * 0.40f;
+    float yCropAmount = boundingBox.size.height * 0.0f;
     
-    return vikingBoundingBox;
+    boundingBox = CGRectMake(boundingBox.origin.x + xOffset,
+                             boundingBox.origin.y,
+                             boundingBox.size.width - xCropAmount,
+                             boundingBox.size.height - yCropAmount);
+    
+    return boundingBox;
 }
+
+//Override CCNODE per la visualizzazione dell'adjustedBoundingBox.
+- (CGRect) boundingBox {
+    
+    CGRect ret = [self adjustedBoundingBox];
+    return CC_RECT_PIXELS_TO_POINTS( ret );
+}
+//
 
 -(void)initAnimations {
     

@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 #import "GameScene.h"
+#import "ExampleLayer.h"
 
 @implementation AppDelegate
 
@@ -112,6 +113,7 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+    //[[CCDirector sharedDirector] runWithScene: [ExampleLayer node]];
 }
 
 

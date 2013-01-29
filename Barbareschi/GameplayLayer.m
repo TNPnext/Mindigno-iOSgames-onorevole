@@ -70,7 +70,7 @@
         [self addChild: spriteBatchNodeGamePlay z: kGameplaySpriteBatchNodeZValue];
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        float h_position = screenSize.height * 0.285f;
+        float h_position = screenSize.height * 0.055f;
         float scaleFactor = 0.52f;
         //
         
@@ -82,11 +82,11 @@
         [barbareschi setScaleX:scaleFactor];
         [barbareschi setScaleY:scaleFactor];
         
-        [barbareschi setPosition: ccp(screenSize.width/2, h_position)];
-        //[barbareschi setAnchorPoint:CGPointMake(0, 1)];
+        [barbareschi setAnchorPoint:CGPointMake(0, 0)];
+        [barbareschi setPosition: ccp(screenSize.width/2-40, h_position)];
         
         [spriteBatchNodeGamePlay addChild:barbareschi z:kBarbareschiSpriteZValue tag:kBarbareschiSpriteTagValue];
-        
+    
         //
         
         Iena *iena = [[Iena alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kIena_fermoFrameName]];
@@ -94,10 +94,10 @@
         [iena setScaleX:scaleFactor];
         [iena setScaleY:scaleFactor];
         
-        [iena setPosition: ccp(screenSize.width-55.0f, h_position)];
-        //[iena setAnchorPoint:CGPointMake(0, 1)];
+        [iena setAnchorPoint:CGPointMake(0, 0)];
+        [iena setPosition: ccp(screenSize.width-115.0f, h_position)];
         
-        [spriteBatchNodeGamePlay addChild:iena z: kGameplaySpriteBatchNodeZValue];
+        [spriteBatchNodeGamePlay addChild:iena z: kGameplaySpriteBatchNodeZValue tag:kIenaSpriteTagValue];
         
         //
         
@@ -106,12 +106,12 @@
         [cameraman setScaleX:scaleFactor];
         [cameraman setScaleY:scaleFactor];
         
-        [cameraman setPosition: ccp(55.0f, h_position)];
-        //[cameraman setAnchorPoint:CGPointMake(0, 1)];
+        [cameraman setAnchorPoint:CGPointMake(0, 0)];
+        [cameraman setPosition: ccp(0.0f, h_position)];
         
-        [spriteBatchNodeGamePlay addChild:cameraman z: kGameplaySpriteBatchNodeZValue];
+        [spriteBatchNodeGamePlay addChild:cameraman z: kGameplaySpriteBatchNodeZValue tag:kCameramanSpriteTagValue];
         
-        //
+        ///
         
         Nuvola *nuvolaGrande = [[Nuvola alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kNuvolaGrandeFrameName]];
         
@@ -121,7 +121,7 @@
         [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.67f)];
         //[nuvolaGrande setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kGameplaySpriteBatchNodeZValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
         
         //
         
@@ -133,7 +133,7 @@
         [nuvolaMedia setPosition: ccp(screenSize.width*0.55f, screenSize.height * 0.87f)];
         //[nuvolaMedia setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaMedia z: kGameplaySpriteBatchNodeZValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaMedia z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
         
         //
         
@@ -145,7 +145,29 @@
         [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.65f)];
         //[nuvolaPiccola setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kGameplaySpriteBatchNodeZValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
+        
+        ///
+        
+        lifeBarCameraman = [CCSprite spriteWithFile:@"Bar.png"];
+        [lifeBarCameraman setAnchorPoint: ccp(0, 1)];
+        [lifeBarCameraman setPosition: ccp(5, screenSize.height-5)];
+        
+        [lifeBarCameraman setScaleX:60];
+        [lifeBarCameraman setScaleY:0.5];
+        
+        [self addChild:lifeBarCameraman z:kControlSpriteZValue];
+        
+        //
+        
+        lifeBarIena = [CCSprite spriteWithFile:@"Bar.png"];
+        [lifeBarIena setAnchorPoint: ccp(1, 1)];
+        [lifeBarIena setPosition: ccp(screenSize.width-5, screenSize.height-5)];
+        
+        [lifeBarIena setScaleX:60];
+        [lifeBarIena setScaleY:0.5];
+        
+        [self addChild:lifeBarIena z:kControlSpriteZValue];
         
         //
         
@@ -160,7 +182,7 @@
     CCArray *listOfGameObjects = [spriteBatchNodeGamePlay children];
     
     for (GameCharacter *tempChar in listOfGameObjects) {
-        [tempChar updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
+        [tempChar updateStateWithDeltaTime:deltaTime];
     }
 }
 

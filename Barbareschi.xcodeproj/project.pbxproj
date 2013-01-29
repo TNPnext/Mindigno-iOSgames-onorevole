@@ -143,6 +143,9 @@
 		D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7B16B6C78C009B6AB9 /* background.png */; };
 		D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */; };
 		D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */; };
+		D9EA7DDB16B7E808006C1070 /* ExampleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EA7DD816B7E808006C1070 /* ExampleLayer.m */; };
+		D9EA7DDC16B7E808006C1070 /* RDDrawingSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EA7DDA16B7E808006C1070 /* RDDrawingSprite.m */; };
+		D9EA7DDE16B8320E006C1070 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EA7DDD16B8320E006C1070 /* Bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -418,6 +421,11 @@
 		D9E4BE7B16B6C78C009B6AB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameplaySprite_default.plist; sourceTree = "<group>"; };
 		D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplaySprite_default.png; sourceTree = "<group>"; };
+		D9EA7DD716B7E808006C1070 /* ExampleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleLayer.h; sourceTree = "<group>"; };
+		D9EA7DD816B7E808006C1070 /* ExampleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleLayer.m; sourceTree = "<group>"; };
+		D9EA7DD916B7E808006C1070 /* RDDrawingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDDrawingSprite.h; sourceTree = "<group>"; };
+		D9EA7DDA16B7E808006C1070 /* RDDrawingSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDDrawingSprite.m; sourceTree = "<group>"; };
+		D9EA7DDD16B8320E006C1070 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +522,7 @@
 		D9CD6B4216B17A3000CD3CFA /* Barbareschi */ = {
 			isa = PBXGroup;
 			children = (
+				D9EA7DD616B7E807006C1070 /* RDDrawingSprite */,
 				D9CD6CCD16B2909700CD3CFA /* Joystick */,
 				D9CD6C9D16B17A3400CD3CFA /* GameConfig.h */,
 				D9CD6C9716B17A3400CD3CFA /* RootViewController.h */,
@@ -561,6 +570,7 @@
 		D9CD6B5816B17A3000CD3CFA /* cocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				D9CD6B8C16B17A3000CD3CFA /* ccConfig.h */,
 				D9CD6B5916B17A3000CD3CFA /* CCAction.h */,
 				D9CD6B5A16B17A3000CD3CFA /* CCAction.m */,
 				D9CD6B5C16B17A3000CD3CFA /* CCActionCamera.h */,
@@ -595,7 +605,6 @@
 				D9CD6B8716B17A3000CD3CFA /* CCBlockSupport.m */,
 				D9CD6B8916B17A3000CD3CFA /* CCCamera.h */,
 				D9CD6B8A16B17A3000CD3CFA /* CCCamera.m */,
-				D9CD6B8C16B17A3000CD3CFA /* ccConfig.h */,
 				D9CD6B8D16B17A3000CD3CFA /* CCConfiguration.h */,
 				D9CD6B8E16B17A3000CD3CFA /* CCConfiguration.m */,
 				D9CD6B9016B17A3000CD3CFA /* CCDirector.h */,
@@ -896,6 +905,7 @@
 		D9E4BE7A16B6C78C009B6AB9 /* Grafica */ = {
 			isa = PBXGroup;
 			children = (
+				D9EA7DDD16B8320E006C1070 /* Bar.png */,
 				D9E4BE7B16B6C78C009B6AB9 /* background.png */,
 				D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */,
 				D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */,
@@ -932,6 +942,17 @@
 				D9CD6B4616B17A3000CD3CFA /* fps_images.png */,
 			);
 			name = "Cocos 2d";
+			sourceTree = "<group>";
+		};
+		D9EA7DD616B7E807006C1070 /* RDDrawingSprite */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA7DD716B7E808006C1070 /* ExampleLayer.h */,
+				D9EA7DD816B7E808006C1070 /* ExampleLayer.m */,
+				D9EA7DD916B7E808006C1070 /* RDDrawingSprite.h */,
+				D9EA7DDA16B7E808006C1070 /* RDDrawingSprite.m */,
+			);
+			path = RDDrawingSprite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1000,6 +1021,7 @@
 				D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */,
 				D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */,
 				D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */,
+				D9EA7DDE16B8320E006C1070 /* Bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1122,6 +1144,8 @@
 				D93BE48516B3DF8200E541DB /* Iena.m in Sources */,
 				D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */,
 				D9E4BE6F16B693E1009B6AB9 /* Nuvola.m in Sources */,
+				D9EA7DDB16B7E808006C1070 /* ExampleLayer.m in Sources */,
+				D9EA7DDC16B7E808006C1070 /* RDDrawingSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
