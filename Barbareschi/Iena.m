@@ -123,11 +123,12 @@
 
         [self changeState: kStateFermo];
         
-    } else if (barbareschiState == kStateFermo && !versoSinistra) {
+    } else if (barbareschiState == kStateFermo && !versoSinistra ) {
         
         //Se collide
-        if (CGRectIntersectsRect(myBox, characterBox)) {
-            if ([self numberOfRunningActions] == 0)
+        if (CGRectIntersectsRect(myBox, characterBox) && self.characterState != kStateIndietreggia) {
+            
+            if ([self numberOfRunningActions] == 0 || self.characterState == kStateMinacciato)
                 [self changeState: kStatePre_colpito];
             
         } else {
@@ -230,8 +231,6 @@
         
         self.gameObjectType = kIenaType;
         self.characterHealth = 100;
-        
-        indiceAnimazione = 0;
         
         [self initAnimations];
     }
