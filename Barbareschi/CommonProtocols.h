@@ -12,7 +12,10 @@ typedef enum {
     kStateMinacciato,
     kStatePre_colpito,
     kStateAttaccato_conPugno,
-    kStateAttaccato_conCalcio
+    kStateAttaccato_conCalcio,
+    
+    kStateGoLeft,
+    kStateGoRight
     
 } CharacterStates;
 

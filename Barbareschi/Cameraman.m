@@ -13,7 +13,7 @@
 
 - (void)spostatiVersoSx:(BOOL)yOrNot barbareschi:(GameObject*)barbareschi conTempo:(ccTime)deltaTime {
     
-    double constVelocity = -0.5;
+    double constVelocity = -0.43;
     
     if (!yOrNot) {
         constVelocity = -constVelocity;
@@ -161,6 +161,12 @@
     
     float xCropAmount = boundingBox.size.width * 0.05f;
     float yCropAmount = boundingBox.size.height * 0.0f;
+    
+    if (self.characterState != kStateCammina &&
+        self.characterState != kStateFermo) {
+        
+        xOffset = boundingBox.size.width * -0.35f;
+    }
     
     boundingBox = CGRectMake(boundingBox.origin.x + xOffset,
                              boundingBox.origin.y,

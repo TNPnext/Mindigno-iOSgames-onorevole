@@ -18,7 +18,10 @@
     return 0;
 }
 
--(void)checkAndClampSpritePosition {
+//Ritorna si se è stato sistemato e quindi ha colliso con il bordo dello schermo. No, altrimenti.
+-(BOOL) checkAndClampSpritePosition {
+    
+    BOOL ret = NO;
     
     CGPoint currentSpritePosition = [self position];
     
@@ -33,17 +36,21 @@
         
     } else {
         
-        CGRect box = [self boundingBox];
+        CGRect box = [self adjustedBoundingBox];
         double minLimit = (box.size.width/2.0);
         double maxLimit = screenSize.width-(box.size.width/2.0);
         
         // Clamp for iPhone, iPhone 4, or iPod touch
         if (currentSpritePosition.x < minLimit) {
             [self setPosition:ccp(minLimit, currentSpritePosition.y)];
+            ret = YES;
             
         } else if (currentSpritePosition.x > maxLimit) {
             [self setPosition:ccp(maxLimit, currentSpritePosition.y)];
+            ret = YES;
         } 
     }
+    
+    return ret;
 }
 @end

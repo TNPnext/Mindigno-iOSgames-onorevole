@@ -118,7 +118,7 @@
         [nuvolaGrande setScaleX:scaleFactor];
         [nuvolaGrande setScaleY:scaleFactor];
         
-        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.67f)];
+        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.65f)];
         //[nuvolaGrande setAnchorPoint:CGPointMake(0, 1)];
         
         [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
@@ -142,7 +142,7 @@
         [nuvolaPiccola setScaleX:scaleFactor];
         [nuvolaPiccola setScaleY:scaleFactor];
         
-        [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.65f)];
+        [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.76f)];
         //[nuvolaPiccola setAnchorPoint:CGPointMake(0, 1)];
         
         [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];

@@ -16,6 +16,7 @@
 
 @interface Nuvola : GameCharacter {
     
+    double constVelocity;
 }
 
 @end

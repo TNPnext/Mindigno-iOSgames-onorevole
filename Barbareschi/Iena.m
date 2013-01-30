@@ -162,6 +162,12 @@
     float xCropAmount = boundingBox.size.width * 0.0f;
     float yCropAmount = boundingBox.size.height * 0.0f;
     
+    if (self.characterState != kStateCammina &&
+        self.characterState != kStateFermo) {
+        
+        xOffset = boundingBox.size.width * 0.30f;
+    }
+    
     boundingBox = CGRectMake(boundingBox.origin.x + xOffset,
                              boundingBox.origin.y,
                              boundingBox.size.width - xCropAmount,

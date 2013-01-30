@@ -11,43 +11,53 @@
 
 @implementation Nuvola
 
+-(void)changeState:(CharacterStates)newState {
+    
+    [self stopAllActions];
+    
+    CCAnimation *animation = nil;
+    id action = nil;
+    
+    CharacterStates oldState = [self characterState];
+    [self setPrevCharacterState: oldState];
+    [self setCharacterState: newState];
+    
+    
+    
+    if (action != nil) {
+        [self runAction:action];
+    }
+}
+
+- (void)spostatiConTempo:(ccTime)deltaTime {
+    
+    double scaledVelocityX = constVelocity * 480.0f;
+    
+    CGPoint oldPosition = [self position];
+    //Muovo solo lungo x
+    CGPoint newPosition = ccp(oldPosition.x + scaledVelocityX * deltaTime,
+                              oldPosition.y);
+    
+    [self setPosition: newPosition];
+}
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
+    BOOL alLimite = [self checkAndClampSpritePosition];
     
-    // Check for collisions
-    // Change this to keep the object count from querying it each time
-    CGRect myBoundingBox = [self adjustedBoundingBox];
+    if (alLimite) {
+        
+        if (self.characterState == kStateGoLeft) {
+            [self changeState: kStateGoRight];
+            constVelocity = -constVelocity;
+        
+        } else if (characterState == kStateGoRight) {
+            constVelocity = -constVelocity;
+            [self changeState: kStateGoLeft];
+        }
+    }
     
-    /*
-     for (GameCharacter *character in listOfGameObjects) {
-     
-     // No need to check collision with one's self
-     if ([character tag] == kBarbareschiSpriteTagValue)
-     continue;
-     
-     CGRect characterBox = [character adjustedBoundingBox];
-     
-     if (CGRectIntersectsRect(myBoundingBox, characterBox)) {
-     
-     // Remove the PhaserBullet from the scene
-     if ([character gameObjectType] == kIenaType) {
-     
-     //[self changeState:kStateTakingDamage];
-     //[character changeState:kStateDead];
-     
-     } else if ([character gameObjectType] == kCameramanType) {
-     
-     //[self changeState:kStateIdle];
-     // Remove the Mallet from the scene
-     //[character changeState:kStateDead];
-     
-     }
-     }
-     }
-     */
-    
-    [self checkAndClampSpritePosition];
+    [self spostatiConTempo:deltaTime];
 }
 
 -(CGRect)adjustedBoundingBox {
@@ -78,6 +88,16 @@
     if(self) {
         
         self.gameObjectType = kNuvolaType;
+        
+        //
+        
+        self.characterState = kStateGoRight;
+        constVelocity = CCRANDOM_0_1()*0.025 + 0.001;
+        
+        if (CCRANDOM_0_1() < 0.5) {
+            self.characterState = kStateGoLeft;
+            constVelocity = -constVelocity;
+        }
         
     }
     return self;
