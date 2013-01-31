@@ -12,7 +12,6 @@
 
 @implementation GameScene
 
-
 - (id) init {
 
     self = [super init];
@@ -23,7 +22,6 @@
         
         GameplayLayer *gameplayLayer = [GameplayLayer node];
         [self addChild:gameplayLayer z: kGameplaySpriteBatchNodeZValue];
-        
     }
     
     return self;

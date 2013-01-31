@@ -28,6 +28,9 @@
     CCAnimation *attaccaCalcioAnimation;
     
     CCAnimation *esultaAnimation;
+    
+    //
+    int indiceSoundToPlay;
 }
 
 @property (nonatomic, assign) SneakyJoystick *joystick;

@@ -8,6 +8,7 @@
 
 #import "Cameraman.h"
 #import "Lifebar.h"
+#import "GameManager.h";
 
 @implementation Cameraman
 
@@ -55,13 +56,11 @@
         case kStateCammina:
             animation = [camminaAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
-            
             break;
             
         case kStateIndietreggia:
             animation = [indietreggiaAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
-            
             break;
             
         case kStateMinacciato:
@@ -75,11 +74,13 @@
             break;
             
         case kStateAttaccato_conPugno:
+            PLAYSOUNDEFFECT(CAZZOTTO);
             animation = [colpito_pugnoAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
             break;
             
         case kStateAttaccato_conCalcio:
+            PLAYSOUNDEFFECT(CAZZOTTO);
             animation = [colpito_calcioAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
             break;
@@ -130,7 +131,8 @@
         
     } else if (barbareschiState == kStateFermo && !versoSinistra) {
         
-        [self changeState: kStateFermo];
+        if (self.characterState != kStateFermo)
+            [self changeState: kStateFermo];
         
     } else if (barbareschiState == kStateFermo && versoSinistra) {
         

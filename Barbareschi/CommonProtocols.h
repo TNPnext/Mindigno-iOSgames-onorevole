@@ -21,9 +21,11 @@ typedef enum {
 } CharacterStates;
 
 typedef enum {
+    
     kObjectTypeNone,
     kBarbareschiType,
     kIenaType,
     kCameramanType,
     kNuvolaType
+    
 } GameObjectType;

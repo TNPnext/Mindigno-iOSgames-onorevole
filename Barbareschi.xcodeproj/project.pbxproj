@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D933C27316BA945C00920B7F /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D933C27216BA945C00920B7F /* GameManager.m */; };
+		D933C27716BAA30900920B7F /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = D933C27616BAA30900920B7F /* SoundEffects.plist */; };
+		D933C27A16BABB2200920B7F /* CentoPerCentoAssenze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D933C27916BABB2200920B7F /* CentoPerCentoAssenze.mp3 */; };
 		D93BE47416B3DA0300E541DB /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE47116B3DA0300E541DB /* GameObject.m */; };
 		D93BE47516B3DA0300E541DB /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE47316B3DA0300E541DB /* GameCharacter.m */; };
 		D93BE48216B3DF7600E541DB /* Barbareschi.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48116B3DF7600E541DB /* Barbareschi.m */; };
@@ -24,7 +27,6 @@
 		D981855D16BA834C00AD3296 /* Vergogna.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981854B16BA834C00AD3296 /* Vergogna.mp3 */; };
 		D981855E16BA834C00AD3296 /* Cazzotto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981854D16BA834C00AD3296 /* Cazzotto.mp3 */; };
 		D981855F16BA834C00AD3296 /* Fine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981854E16BA834C00AD3296 /* Fine.mp3 */; };
-		D981856016BA834C00AD3296 /* 100per100delle_assenze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981855016BA834C00AD3296 /* 100per100delle_assenze.mp3 */; };
 		D981856116BA834C00AD3296 /* Assente_al_parlamento.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981855116BA834C00AD3296 /* Assente_al_parlamento.mp3 */; };
 		D981856216BA834C00AD3296 /* Fregato_il_cellulare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981855216BA834C00AD3296 /* Fregato_il_cellulare.mp3 */; };
 		D981856316BA834C00AD3296 /* Perche_mi_mena.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D981855316BA834C00AD3296 /* Perche_mi_mena.mp3 */; };
@@ -163,6 +165,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D933C27116BA945C00920B7F /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		D933C27216BA945C00920B7F /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		D933C27616BAA30900920B7F /* SoundEffects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SoundEffects.plist; path = Barbareschi/Resources/SoundEffects.plist; sourceTree = SOURCE_ROOT; };
+		D933C27916BABB2200920B7F /* CentoPerCentoAssenze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CentoPerCentoAssenze.mp3; sourceTree = "<group>"; };
 		D93BE47016B3DA0300E541DB /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		D93BE47116B3DA0300E541DB /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		D93BE47216B3DA0300E541DB /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
@@ -188,7 +194,6 @@
 		D981854B16BA834C00AD3296 /* Vergogna.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Vergogna.mp3; sourceTree = "<group>"; };
 		D981854D16BA834C00AD3296 /* Cazzotto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cazzotto.mp3; sourceTree = "<group>"; };
 		D981854E16BA834C00AD3296 /* Fine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fine.mp3; sourceTree = "<group>"; };
-		D981855016BA834C00AD3296 /* 100per100delle_assenze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 100per100delle_assenze.mp3; sourceTree = "<group>"; };
 		D981855116BA834C00AD3296 /* Assente_al_parlamento.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Assente_al_parlamento.mp3; sourceTree = "<group>"; };
 		D981855216BA834C00AD3296 /* Fregato_il_cellulare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fregato_il_cellulare.mp3; sourceTree = "<group>"; };
 		D981855316BA834C00AD3296 /* Perche_mi_mena.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Perche_mi_mena.mp3; sourceTree = "<group>"; };
@@ -474,13 +479,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D93BE47816B3DA7D00E541DB /* GameObjects */ = {
+		D933C27016BA938C00920B7F /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				D93BE47616B3DA1900E541DB /* Constants.h */,
-				D93BE47716B3DA2700E541DB /* CommonProtocols.h */,
-				D93BE48916B41B4C00E541DB /* Base */,
-				D93BE47916B3DA9200E541DB /* Plist Character */,
 				D93BE48016B3DF7600E541DB /* Barbareschi.h */,
 				D93BE48116B3DF7600E541DB /* Barbareschi.m */,
 				D93BE48316B3DF8200E541DB /* Iena.h */,
@@ -489,8 +490,25 @@
 				D93BE48716B3DF8F00E541DB /* Cameraman.m */,
 				D9E4BE6D16B693E1009B6AB9 /* Nuvola.h */,
 				D9E4BE6E16B693E1009B6AB9 /* Nuvola.m */,
-				D981854016BA714600AD3296 /* Lifebar.h */,
-				D981854116BA714700AD3296 /* Lifebar.m */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
+		D933C27816BAA3D200920B7F /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				D93BE47616B3DA1900E541DB /* Constants.h */,
+				D93BE47716B3DA2700E541DB /* CommonProtocols.h */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
+		D93BE47816B3DA7D00E541DB /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				D93BE48916B41B4C00E541DB /* Base */,
+				D93BE47916B3DA9200E541DB /* Plist Character */,
+				D933C27016BA938C00920B7F /* Character */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -519,6 +537,7 @@
 		D981854316BA834C00AD3296 /* Suoni */ = {
 			isa = PBXGroup;
 			children = (
+				D933C27616BAA30900920B7F /* SoundEffects.plist */,
 				D981855616BA834C00AD3296 /* Intro.mp3 */,
 				D981854E16BA834C00AD3296 /* Fine.mp3 */,
 				D981854416BA834C00AD3296 /* Barbareschi */,
@@ -555,10 +574,10 @@
 			isa = PBXGroup;
 			children = (
 				D981855516BA834C00AD3296 /* RaggiungiamoInSicilia.mp3 */,
-				D981855016BA834C00AD3296 /* 100per100delle_assenze.mp3 */,
-				D981855116BA834C00AD3296 /* Assente_al_parlamento.mp3 */,
 				D981855216BA834C00AD3296 /* Fregato_il_cellulare.mp3 */,
 				D981855316BA834C00AD3296 /* Perche_mi_mena.mp3 */,
+				D933C27916BABB2200920B7F /* CentoPerCentoAssenze.mp3 */,
+				D981855116BA834C00AD3296 /* Assente_al_parlamento.mp3 */,
 				D981855416BA834C00AD3296 /* Perche_non_si_dimette.mp3 */,
 			);
 			path = Iena;
@@ -600,14 +619,19 @@
 			isa = PBXGroup;
 			children = (
 				D9CD6CCD16B2909700CD3CFA /* Joystick */,
+				D933C27816BAA3D200920B7F /* Constant */,
 				D9CD6C9D16B17A3400CD3CFA /* GameConfig.h */,
 				D9CD6C9716B17A3400CD3CFA /* RootViewController.h */,
 				D9CD6C9816B17A3400CD3CFA /* RootViewController.m */,
 				D9CD6C9416B17A3400CD3CFA /* AppDelegate.h */,
 				D9CD6C9516B17A3400CD3CFA /* AppDelegate.m */,
+				D933C27116BA945C00920B7F /* GameManager.h */,
+				D933C27216BA945C00920B7F /* GameManager.m */,
 				D9CD6CBF16B1A0DC00CD3CFA /* Scenes */,
 				D9CD6CC016B1A0E900CD3CFA /* Layers */,
 				D93BE47816B3DA7D00E541DB /* GameObjects */,
+				D981854016BA714600AD3296 /* Lifebar.h */,
+				D981854116BA714700AD3296 /* Lifebar.m */,
 				D9CD6B4316B17A3000CD3CFA /* Resources */,
 				D9CD6B5716B17A3000CD3CFA /* libs */,
 				D9CD6C9016B17A3400CD3CFA /* Supporting Files */,
@@ -1095,13 +1119,14 @@
 				D981855D16BA834C00AD3296 /* Vergogna.mp3 in Resources */,
 				D981855E16BA834C00AD3296 /* Cazzotto.mp3 in Resources */,
 				D981855F16BA834C00AD3296 /* Fine.mp3 in Resources */,
-				D981856016BA834C00AD3296 /* 100per100delle_assenze.mp3 in Resources */,
 				D981856116BA834C00AD3296 /* Assente_al_parlamento.mp3 in Resources */,
 				D981856216BA834C00AD3296 /* Fregato_il_cellulare.mp3 in Resources */,
 				D981856316BA834C00AD3296 /* Perche_mi_mena.mp3 in Resources */,
 				D981856416BA834C00AD3296 /* Perche_non_si_dimette.mp3 in Resources */,
 				D981856516BA834C00AD3296 /* RaggiungiamoInSicilia.mp3 in Resources */,
 				D981856616BA834C00AD3296 /* Intro.mp3 in Resources */,
+				D933C27716BAA30900920B7F /* SoundEffects.plist in Resources */,
+				D933C27A16BABB2200920B7F /* CentoPerCentoAssenze.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,6 +1250,7 @@
 				D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */,
 				D9E4BE6F16B693E1009B6AB9 /* Nuvola.m in Sources */,
 				D981854216BA714700AD3296 /* Lifebar.m in Sources */,
+				D933C27316BA945C00920B7F /* GameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

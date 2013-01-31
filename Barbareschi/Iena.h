@@ -25,6 +25,8 @@
     NSArray *minacciataAnimationArray;
     
     int indiceAnimazione;
+    
+    int indiceSoundToPlay;
 }
 
 @end

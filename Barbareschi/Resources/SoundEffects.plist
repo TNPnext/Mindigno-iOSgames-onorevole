@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kNoSceneUninitialized</key>
+	<dict/>
+	<key>kMainMenuScene</key>
+	<dict>
+		<key>CHORUS1</key>
+		<string>22k_space_viking_chorusV1.wav</string>
+	</dict>
+	<key>kOptionsScene</key>
+	<dict/>
+	<key>kCreditsScene</key>
+	<dict/>
+	<key>kLevelCompleteScene</key>
+	<dict/>
+	<key>kGameLevel1</key>
+	<dict>
+		<key>INTRO</key>
+		<string>Intro.mp3</string>
+		<key>FINE</key>
+		<string>Fine.mp3</string>
+		<key>CAZZOTTO</key>
+		<string>Cazzotto.mp3</string>
+		<key>CRETINO</key>
+		<string>Cretino.mp3</string>
+		<key>CRETINO_2</key>
+		<string>Cretino_2.mp3</string>
+		<key>IMBECILLE</key>
+		<string>Imbecille.mp3</string>
+		<key>IMBECILLE_2</key>
+		<string>Imbecille_2.mp3</string>
+		<key>FASCISTELLO</key>
+		<string>Fascistello.mp3</string>
+		<key>TEPPISTELLO</key>
+		<string>Teppistello.mp3</string>
+		<key>VERGOGNA</key>
+		<string>Vergogna.mp3</string>
+		<key>RAGGIUNGIAMO_IN_SICILIA</key>
+		<string>RaggiungiamoInSicilia.mp3</string>
+		<key>CENTO_PER_CENTO_ASSENZE</key>
+		<string>CentoPerCentoAssenze.mp3</string>
+		<key>ASSENTE_AL_PARLAMENTO</key>
+		<string>Assente_al_parlamento.mp3</string>
+		<key>FREGATO_IL_CELLULARE</key>
+		<string>Fregato_il_cellulare.mp3</string>
+		<key>PERCHE_MENA</key>
+		<string>Perche_mi_mena.mp3</string>
+		<key>PERCHE_NON_SI_DIMETTE</key>
+		<string>Perche_non_si_dimette.mp3</string>
+	</dict>
+</dict>
+</plist>

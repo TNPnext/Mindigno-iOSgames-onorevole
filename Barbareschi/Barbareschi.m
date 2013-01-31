@@ -7,6 +7,7 @@
 //
 
 #import "Barbareschi.h"
+#import "GameManager.h"
 
 @implementation Barbareschi
 
@@ -94,6 +95,47 @@
     }
 }
 
+-(void)playNextSound {
+
+    switch (indiceSoundToPlay) {
+        case 2:
+            PLAYSOUNDEFFECT(CRETINO);
+            break;
+            
+        case 6:
+            PLAYSOUNDEFFECT(CRETINO_2);
+            break;
+            
+        case 10:
+            PLAYSOUNDEFFECT(IMBECILLE);
+            break;
+            
+        case 14:
+            PLAYSOUNDEFFECT(IMBECILLE_2);
+            break;
+            
+        case 18:
+            PLAYSOUNDEFFECT(FASCISTELLO);
+            break;
+            
+        case 22:
+            PLAYSOUNDEFFECT(TEPPISTELLO);
+            break;
+            
+        case 26:
+            PLAYSOUNDEFFECT(VERGOGNA);
+            break;
+            
+        default:
+            break;
+    }
+    
+    indiceSoundToPlay++;
+    if (indiceSoundToPlay > 27) {
+        indiceSoundToPlay = 0;
+    }
+}
+
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
     if (self.characterState == kStateEsulta)
@@ -117,6 +159,8 @@
             
             if (isClicked) {
                 CCLOG(@"attackButton was pressed");
+                
+                [self playNextSound];
                 
                 if (attaccaConPugno)
                     [self changeState: kStateAttacco_pugno];
@@ -231,6 +275,10 @@
         self.characterState = kStateFermo;
       
         [self initAnimations];
+        
+        indiceSoundToPlay = 0;
+        
+        [self setFlipX: YES];
     }
     return self;
 }

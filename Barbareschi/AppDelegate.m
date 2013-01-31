@@ -12,7 +12,7 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 #import "GameScene.h"
-#import "ExampleLayer.h"
+#import "GameManager.h"
 
 @implementation AppDelegate
 
@@ -112,8 +112,11 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
-    //[[CCDirector sharedDirector] runWithScene: [ExampleLayer node]];
+	//[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+    
+    
+    [[GameManager sharedGameManager] setupAudioEngine];
+    [[GameManager sharedGameManager] runSceneWithID: kGameLevel1];
 }
 
 

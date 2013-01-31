@@ -7,7 +7,9 @@
 //
 
 #import "Iena.h"
+#import "Cameraman.h"
 #import "Lifebar.h"
+#import "GameManager.h"
 
 @implementation Iena
 
@@ -55,13 +57,11 @@
         case kStateCammina:
             animation = [camminaAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
-            
             break;
             
         case kStateIndietreggia:
             animation = [indietreggiaAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO]];
-            
             break;
             
         case kStateMinacciato:
@@ -75,16 +75,19 @@
             break;
             
         case kStateAttaccato_conPugno:
+            PLAYSOUNDEFFECT(CAZZOTTO);
             animation = [colpita_pugnoAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
             break;
             
         case kStateAttaccato_conCalcio:
+            PLAYSOUNDEFFECT(CAZZOTTO);
             animation = [colpita_calcioAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
             break;
             
         case kStateMorto:
+            PLAYSOUNDEFFECT(FREGATO_IL_CELLULARE);
             action = [CCMoveTo actionWithDuration:1.0 position:ccp([self position].x, [self position].y-[self adjustedBoundingBox].size.height-100)];
             break;
             
@@ -97,6 +100,35 @@
     }
 }
 
+-(void)playNextSound {
+    
+    switch (indiceSoundToPlay) {
+        case 0:
+            PLAYSOUNDEFFECT(CENTO_PER_CENTO_ASSENZE);
+            break;
+            
+        case 10:
+            PLAYSOUNDEFFECT(ASSENTE_AL_PARLAMENTO);
+            break;
+            
+        case 14:
+            PLAYSOUNDEFFECT(PERCHE_NON_SI_DIMETTE);
+            break;
+            
+        case 18:
+            PLAYSOUNDEFFECT(PERCHE_MENA);
+            break;
+            
+        default:
+            break;
+    }
+    
+    indiceSoundToPlay++;
+    if (indiceSoundToPlay > 22) {
+        indiceSoundToPlay = 0;
+    }
+}
+
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
     if (self.characterState == kStateMorto)
@@ -104,6 +136,9 @@
     
     GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
     CharacterStates barbareschiState = barbareschi.characterState;
+    
+    GameCharacter *cameraman = (GameCharacter*)[[self parent] getChildByTag: kCameramanSpriteTagValue];
+    CharacterStates cameramanState = cameraman.characterState;
     
     Lifebar *lifebar = (Lifebar*)[[[self parent] parent] getChildByTag: kLifebarIenaSpriteTagValue];
     
@@ -118,8 +153,9 @@
         
         [self spostatiVersoSx:YES barbareschi:barbareschi conTempo:deltaTime];
         
-        if (self.characterState != kStateCammina)
+        if (self.characterState != kStateCammina) {
             [self changeState:kStateCammina];
+        }
     
     } else if (barbareschiState == kStateCammina && !versoSinistra) {
         
@@ -129,8 +165,9 @@
             [self changeState:kStateIndietreggia];
     
     } else if (barbareschiState == kStateFermo && versoSinistra) {
-
-        [self changeState: kStateFermo];
+        
+        if (self.characterState != kStateFermo)
+            [self changeState: kStateFermo];
         
     } else if (barbareschiState == kStateFermo && !versoSinistra) {
         
@@ -152,6 +189,8 @@
             
             self.characterHealth -= [barbareschi getWeaponDamage];
             [lifebar setLife: self.characterHealth];
+            
+            [self playNextSound];
         }
 
     } else if (barbareschiState == kStateAttacco_calcio && !versoSinistra) {
@@ -163,6 +202,17 @@
             self.characterHealth -= [barbareschi getWeaponDamage];
             [lifebar setLife: self.characterHealth];
         }
+    
+    }
+    
+    //Quando Barbareschi mena con il pugno il cameraman
+    if (barbareschiState == kStateAttacco_pugno && versoSinistra) {
+        //Se collide
+        if (CGRectIntersectsRect(myBox, characterBox) && cameramanState != kStateAttaccato_conPugno) {
+            [self playNextSound];
+            NSLog(@"tam");
+        }
+        
     }
     
     if (self.characterHealth <= 0) {
@@ -260,6 +310,8 @@
         self.characterHealth = 100;
         
         [self initAnimations];
+        
+        indiceSoundToPlay = 0;
     }
     return self;
 }

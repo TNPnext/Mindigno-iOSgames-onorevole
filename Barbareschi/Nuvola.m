@@ -12,21 +12,10 @@
 @implementation Nuvola
 
 -(void)changeState:(CharacterStates)newState {
-    
-    [self stopAllActions];
-    
-    CCAnimation *animation = nil;
-    id action = nil;
-    
+
     CharacterStates oldState = [self characterState];
     [self setPrevCharacterState: oldState];
     [self setCharacterState: newState];
-    
-    
-    
-    if (action != nil) {
-        [self runAction:action];
-    }
 }
 
 - (void)spostatiConTempo:(ccTime)deltaTime {
