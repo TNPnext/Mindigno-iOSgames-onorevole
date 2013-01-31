@@ -92,7 +92,7 @@
         //
         
         self.characterState = kStateGoRight;
-        constVelocity = CCRANDOM_0_1()*0.025 + 0.001;
+        constVelocity = CCRANDOM_0_1()*0.005 + 0.001;
         
         if (CCRANDOM_0_1() < 0.5) {
             self.characterState = kStateGoLeft;

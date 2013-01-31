@@ -7,7 +7,7 @@
 //
 
 #import "Cameraman.h"
-
+#import "Lifebar.h"
 
 @implementation Cameraman
 
@@ -83,6 +83,10 @@
             animation = [colpito_calcioAnimationArray objectAtIndex: indiceAnimazione];
             action = [CCAnimate actionWithAnimation: animation restoreOriginalFrame:NO];
             break;
+        
+        case kStateMorto:
+            action = [CCMoveTo actionWithDuration:1.0 position:ccp([self position].x, [self position].y-[self adjustedBoundingBox].size.height-100)];
+            break;
             
         default:
             break;
@@ -95,8 +99,13 @@
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime {
     
+    if (self.characterState == kStateMorto)
+        return;
+    
     GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
     CharacterStates barbareschiState = barbareschi.characterState;
+    
+    Lifebar *lifebar = (Lifebar*)[[[self parent] parent] getChildByTag: kLifebarCameramanSpriteTagValue];
     
     if (barbareschiState == kStateEsulta)
         return; // Nothing to do.
@@ -136,16 +145,28 @@
         }
         
     } else if (barbareschiState == kStateAttacco_pugno && versoSinistra) {
+        
         //Se collide
-        if (CGRectIntersectsRect(myBox, characterBox)) {
+        if (CGRectIntersectsRect(myBox, characterBox) && self.characterState != kStateAttaccato_conPugno) {
             [self changeState: kStateAttaccato_conPugno];
+            
+            self.characterHealth -= [barbareschi getWeaponDamage];
+            [lifebar setLife: self.characterHealth];
         }
         
     } else if (barbareschiState == kStateAttacco_calcio && versoSinistra) {
+        
         //Se collide
-        if (CGRectIntersectsRect(myBox, characterBox)) {
+        if (CGRectIntersectsRect(myBox, characterBox) && self.characterState != kStateAttaccato_conCalcio) {
             [self changeState: kStateAttaccato_conCalcio];
+            
+            self.characterHealth -= [barbareschi getWeaponDamage];
+            [lifebar setLife: self.characterHealth];
         }
+    }
+    
+    if (self.characterHealth <= 0) {
+        [self changeState: kStateMorto];
     }
     
     [self checkAndClampSpritePosition];

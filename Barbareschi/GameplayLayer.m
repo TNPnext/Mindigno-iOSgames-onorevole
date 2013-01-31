@@ -11,6 +11,7 @@
 #import "Iena.h"
 #import "Cameraman.h"
 #import "Nuvola.h"
+#import "Lifebar.h"
 #import "Constants.h"
 
 @implementation GameplayLayer
@@ -149,25 +150,21 @@
         
         ///
         
-        lifeBarCameraman = [CCSprite spriteWithFile:@"Bar.png"];
+        Lifebar *lifeBarCameraman = [[Lifebar alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: @"lifebar.png"]];
+
         [lifeBarCameraman setAnchorPoint: ccp(0, 1)];
         [lifeBarCameraman setPosition: ccp(5, screenSize.height-5)];
         
-        [lifeBarCameraman setScaleX:60];
-        [lifeBarCameraman setScaleY:0.5];
-        
-        [self addChild:lifeBarCameraman z:kControlSpriteZValue];
+        [self addChild:lifeBarCameraman z:kControlSpriteZValue tag:kLifebarCameramanSpriteTagValue];
         
         //
         
-        lifeBarIena = [CCSprite spriteWithFile:@"Bar.png"];
+        Lifebar *lifeBarIena = [[Lifebar alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: @"lifebar.png"]];
+        
         [lifeBarIena setAnchorPoint: ccp(1, 1)];
         [lifeBarIena setPosition: ccp(screenSize.width-5, screenSize.height-5)];
         
-        [lifeBarIena setScaleX:60];
-        [lifeBarIena setScaleY:0.5];
-        
-        [self addChild:lifeBarIena z:kControlSpriteZValue];
+        [self addChild:lifeBarIena z:kControlSpriteZValue tag:kLifebarIenaSpriteTagValue];
         
         //
         

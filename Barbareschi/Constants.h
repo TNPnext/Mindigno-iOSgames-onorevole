@@ -11,6 +11,8 @@
 #define kIenaSpriteTagValue 1
 #define kCameramanSpriteTagValue 2
 #define kNuvolaSpriteTagValue 3
+#define kLifebarIenaSpriteTagValue 4
+#define kLifebarCameramanSpriteTagValue 5
 
 
 #define kBarbareschiIenaDamage 3

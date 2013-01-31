@@ -12,6 +12,9 @@
 		D93BE48216B3DF7600E541DB /* Barbareschi.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48116B3DF7600E541DB /* Barbareschi.m */; };
 		D93BE48516B3DF8200E541DB /* Iena.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48416B3DF8200E541DB /* Iena.m */; };
 		D93BE48816B3DF8F00E541DB /* Cameraman.m in Sources */ = {isa = PBXBuildFile; fileRef = D93BE48716B3DF8F00E541DB /* Cameraman.m */; };
+		D981853E16BA706C00AD3296 /* GameplaySprite_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D981853C16BA706C00AD3296 /* GameplaySprite_default.plist */; };
+		D981853F16BA706C00AD3296 /* GameplaySprite_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D981853D16BA706C00AD3296 /* GameplaySprite_default.png */; };
+		D981854216BA714700AD3296 /* Lifebar.m in Sources */ = {isa = PBXBuildFile; fileRef = D981854116BA714700AD3296 /* Lifebar.m */; };
 		D9CD6B3316B17A3000CD3CFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */; };
 		D9CD6B3516B17A3000CD3CFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */; };
 		D9CD6B3716B17A3000CD3CFA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CD6B3616B17A3000CD3CFA /* OpenAL.framework */; };
@@ -141,11 +144,8 @@
 		D9E4BE7816B6C744009B6AB9 /* Cameraman.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7516B6C744009B6AB9 /* Cameraman.plist */; };
 		D9E4BE7916B6C744009B6AB9 /* Iena.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7616B6C744009B6AB9 /* Iena.plist */; };
 		D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7B16B6C78C009B6AB9 /* background.png */; };
-		D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */; };
-		D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */; };
 		D9EA7DDB16B7E808006C1070 /* ExampleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EA7DD816B7E808006C1070 /* ExampleLayer.m */; };
 		D9EA7DDC16B7E808006C1070 /* RDDrawingSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EA7DDA16B7E808006C1070 /* RDDrawingSprite.m */; };
-		D9EA7DDE16B8320E006C1070 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EA7DDD16B8320E006C1070 /* Bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +161,10 @@
 		D93BE48416B3DF8200E541DB /* Iena.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Iena.m; sourceTree = "<group>"; };
 		D93BE48616B3DF8F00E541DB /* Cameraman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cameraman.h; sourceTree = "<group>"; };
 		D93BE48716B3DF8F00E541DB /* Cameraman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cameraman.m; sourceTree = "<group>"; };
+		D981853C16BA706C00AD3296 /* GameplaySprite_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameplaySprite_default.plist; sourceTree = "<group>"; };
+		D981853D16BA706C00AD3296 /* GameplaySprite_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplaySprite_default.png; sourceTree = "<group>"; };
+		D981854016BA714600AD3296 /* Lifebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lifebar.h; sourceTree = "<group>"; };
+		D981854116BA714700AD3296 /* Lifebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lifebar.m; sourceTree = "<group>"; };
 		D9CD6B2E16B17A3000CD3CFA /* Barbareschi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barbareschi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CD6B3216B17A3000CD3CFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D9CD6B3416B17A3000CD3CFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -419,13 +423,10 @@
 		D9E4BE7516B6C744009B6AB9 /* Cameraman.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cameraman.plist; path = plistCharacter/Cameraman.plist; sourceTree = "<group>"; };
 		D9E4BE7616B6C744009B6AB9 /* Iena.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Iena.plist; path = plistCharacter/Iena.plist; sourceTree = "<group>"; };
 		D9E4BE7B16B6C78C009B6AB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameplaySprite_default.plist; sourceTree = "<group>"; };
-		D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplaySprite_default.png; sourceTree = "<group>"; };
 		D9EA7DD716B7E808006C1070 /* ExampleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleLayer.h; sourceTree = "<group>"; };
 		D9EA7DD816B7E808006C1070 /* ExampleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleLayer.m; sourceTree = "<group>"; };
 		D9EA7DD916B7E808006C1070 /* RDDrawingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDDrawingSprite.h; sourceTree = "<group>"; };
 		D9EA7DDA16B7E808006C1070 /* RDDrawingSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDDrawingSprite.m; sourceTree = "<group>"; };
-		D9EA7DDD16B8320E006C1070 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +463,8 @@
 				D93BE48716B3DF8F00E541DB /* Cameraman.m */,
 				D9E4BE6D16B693E1009B6AB9 /* Nuvola.h */,
 				D9E4BE6E16B693E1009B6AB9 /* Nuvola.m */,
+				D981854016BA714600AD3296 /* Lifebar.h */,
+				D981854116BA714700AD3296 /* Lifebar.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -905,10 +908,9 @@
 		D9E4BE7A16B6C78C009B6AB9 /* Grafica */ = {
 			isa = PBXGroup;
 			children = (
-				D9EA7DDD16B8320E006C1070 /* Bar.png */,
 				D9E4BE7B16B6C78C009B6AB9 /* background.png */,
-				D9E4BE7D16B6C78C009B6AB9 /* GameplaySprite_default.png */,
-				D9E4BE7C16B6C78C009B6AB9 /* GameplaySprite_default.plist */,
+				D981853C16BA706C00AD3296 /* GameplaySprite_default.plist */,
+				D981853D16BA706C00AD3296 /* GameplaySprite_default.png */,
 			);
 			name = Grafica;
 			path = Resources/Grafica;
@@ -1019,9 +1021,8 @@
 				D9E4BE7816B6C744009B6AB9 /* Cameraman.plist in Resources */,
 				D9E4BE7916B6C744009B6AB9 /* Iena.plist in Resources */,
 				D9E4BE7E16B6C78C009B6AB9 /* background.png in Resources */,
-				D9E4BE7F16B6C78C009B6AB9 /* GameplaySprite_default.plist in Resources */,
-				D9E4BE8016B6C78C009B6AB9 /* GameplaySprite_default.png in Resources */,
-				D9EA7DDE16B8320E006C1070 /* Bar.png in Resources */,
+				D981853E16BA706C00AD3296 /* GameplaySprite_default.plist in Resources */,
+				D981853F16BA706C00AD3296 /* GameplaySprite_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,6 +1147,7 @@
 				D9E4BE6F16B693E1009B6AB9 /* Nuvola.m in Sources */,
 				D9EA7DDB16B7E808006C1070 /* ExampleLayer.m in Sources */,
 				D9EA7DDC16B7E808006C1070 /* RDDrawingSprite.m in Sources */,
+				D981854216BA714700AD3296 /* Lifebar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

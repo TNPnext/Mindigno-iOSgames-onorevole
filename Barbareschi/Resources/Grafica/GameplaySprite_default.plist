@@ -753,6 +753,28 @@
 			<false/>
 		</dict>
 		
+		<key>lifebar.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {2, 30}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{2, 30}</string>
+			<key>spriteSourceSize</key>
+			<string>{2, 30}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{639, 1106}, {2, 30}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
 		<key>nuvola_01.png</key>
 		<dict>
 			<key>aliases</key>
@@ -814,7 +836,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{639, 1054}, {99, 39}}</string>
+			<string>{{639, 1053}, {99, 39}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>

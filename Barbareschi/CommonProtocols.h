@@ -13,6 +13,7 @@ typedef enum {
     kStatePre_colpito,
     kStateAttaccato_conPugno,
     kStateAttaccato_conCalcio,
+    kStateMorto,
     
     kStateGoLeft,
     kStateGoRight
