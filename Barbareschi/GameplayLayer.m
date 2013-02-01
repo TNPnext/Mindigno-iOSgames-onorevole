@@ -190,6 +190,13 @@
         gameOverLayer = [[GameOverLayer node] retain];
         addedGameOverLayer = NO;
         
+        /*
+        //Per testare e visualizzare la schermata finale da subito
+        [self addChild: gameOverLayer z:kFinalGameSpriteZValue];
+        [self removeChild:joystickBase cleanup:YES];
+        [self removeChild:attackButtonBase cleanup:YES];
+        */
+        
         //
         
         [self scheduleUpdate];
