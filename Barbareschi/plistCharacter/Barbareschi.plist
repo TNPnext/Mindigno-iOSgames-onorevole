@@ -34,7 +34,7 @@
 		<key>filenamePrefix</key>
 		<string>barbareschi_</string>
 		<key>delay</key>
-		<real>0.25</real>
+		<real>0.45</real>
 		<key>animationFrames</key>
 		<string>05,06</string>
 	</dict>

@@ -4,6 +4,7 @@
 #define kBackgroundSpriteZValue 0
 #define kGameplaySpriteBatchNodeZValue 10
 #define kBarbareschiSpriteZValue 50
+#define kFinalGameSpriteZValue 90
 #define kHeaderSpriteZValue 95
 #define kControlSpriteZValue 100
 
@@ -16,8 +17,8 @@
 #define kLifebarCameramanSpriteTagValue 5
 
 
-#define kBarbareschiIenaDamage 3
-#define kBarbareschiCameramanDamage 4
+#define kBarbareschiIenaDamage 30
+#define kBarbareschiCameramanDamage 40
 
 
 typedef enum {

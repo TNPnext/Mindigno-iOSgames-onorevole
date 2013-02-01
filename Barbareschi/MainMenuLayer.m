@@ -50,7 +50,7 @@
                                        target:self
                                        selector:@selector(preGameScene)];
     [playGameButton setScaleX: 0.52];
-    [playGameButton setScaleY:0.52];
+    [playGameButton setScaleY: 0.52];
     
     mainMenu = [CCMenu menuWithItems: playGameButton ,nil];
     

@@ -48,6 +48,10 @@
     [self setPrevCharacterState: oldState];
     [self setCharacterState: newState];
     
+    if (self.characterHealth < 50) {
+        indiceAnimazione = 1;
+    }
+    
     switch (newState) {
             
         case kStateFermo:

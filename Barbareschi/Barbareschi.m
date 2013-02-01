@@ -8,6 +8,7 @@
 
 #import "Barbareschi.h"
 #import "GameManager.h"
+#import "GameOverLayer.h"
 
 @implementation Barbareschi
 
@@ -87,6 +88,8 @@
             break;
             
         case kStateEsulta:
+            [[GameManager sharedGameManager] setHasPlayerDied:YES];
+            
             PLAYSOUNDEFFECT(FINE);
             
             [self runAction: [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: esultaAnimation restoreOriginalFrame:NO]]];
@@ -202,6 +205,7 @@
             [self changeState: kStateFermo];
     }
     
+    //Gioco finito
     if ([self numberOfRunningActions] == 0) {
         if ([iena characterHealth] <= 0.0f && [cameraman characterHealth] <= 0.0f) {
             [self changeState: kStateEsulta];

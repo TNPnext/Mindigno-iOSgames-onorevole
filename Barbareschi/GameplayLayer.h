@@ -15,8 +15,12 @@
 #import "SneakyButtonSkinnedBase.h"
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
+#import "GameOverLayer.h"
 
 @interface GameplayLayer : CCLayer {
+    
+    SneakyJoystickSkinnedBase *joystickBase;
+    SneakyButtonSkinnedBase *attackButtonBase;
     
     SneakyJoystick *joystick;
     SneakyButton *attackButton;
@@ -24,6 +28,9 @@
     //
     
     CCSpriteBatchNode *spriteBatchNodeGamePlay;
+    
+    GameOverLayer *gameOverLayer;
+    BOOL addedGameOverLayer;
 }
 
 @end

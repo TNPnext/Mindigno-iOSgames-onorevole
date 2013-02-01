@@ -13,6 +13,7 @@
 #import "Nuvola.h"
 #import "Lifebar.h"
 #import "Constants.h"
+#import "GameManager.h"
 
 @implementation GameplayLayer
 
@@ -23,7 +24,7 @@
         scaleFactor = 1.0f;
     }
 
-    SneakyJoystickSkinnedBase *joystickBase = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
+    joystickBase = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
     [joystickBase setPosition: ccp(96, 64)];
     [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size:CGSizeMake(128, 64)]];
     //[joystickBase setBackgroundSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 128) radius:64]];
@@ -41,7 +42,7 @@
     
     //
     
-    SneakyButtonSkinnedBase *attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
+    attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
     [attackButtonBase setPosition: ccp(400, 64)];
     
     [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 150) radius:32]];
@@ -63,6 +64,8 @@
  
     [joystick release];
     [attackButton release];
+    
+    [gameOverLayer release];
     
     [super dealloc];
 }
@@ -184,6 +187,11 @@
         
         //
         
+        gameOverLayer = [[GameOverLayer node] retain];
+        addedGameOverLayer = NO;
+        
+        //
+        
         [self scheduleUpdate];
     }
     
@@ -191,6 +199,17 @@
 }
 
 -(void) update:(ccTime)deltaTime {
+    
+    BOOL giocoFinito = [[GameManager sharedGameManager] hasPlayerDied];
+    if (giocoFinito && !addedGameOverLayer) {
+        
+        addedGameOverLayer = YES;
+        
+        [self addChild: gameOverLayer z:kFinalGameSpriteZValue];
+        
+        [self removeChild:joystickBase cleanup:YES];
+        [self removeChild:attackButtonBase cleanup:YES];
+    }
     
     CCArray *listOfGameObjects = [spriteBatchNodeGamePlay children];
     
