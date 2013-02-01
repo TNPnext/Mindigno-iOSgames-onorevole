@@ -53,6 +53,10 @@
     }
 }
 
+-(void)playLastSound {
+    PLAYSOUNDEFFECT(FREGATO_IL_CELLULARE);
+}
+
 -(void)changeState:(CharacterStates)newState {
     
     [self stopAllActions];
@@ -83,7 +87,14 @@
             break;
             
         case kStateEsulta:
-            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: esultaAnimation restoreOriginalFrame:NO]];
+            PLAYSOUNDEFFECT(FINE);
+            
+            [self runAction: [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: esultaAnimation restoreOriginalFrame:NO]]];
+             
+            action = [CCSequence actions:
+                      [CCDelayTime actionWithDuration:2],
+                      [CCCallFunc actionWithTarget:self selector:@selector(playLastSound)],
+                      nil];
             break;
             
         default:

@@ -16,13 +16,12 @@
     self = [super init];
     if (self) {
         
-        CCSprite *backgroundImg = [CCSprite spriteWithFile:@"background.png"];
-        
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
+        CCSprite *backgroundImg = [CCSprite spriteWithFile:@"background.png"];
         [backgroundImg setPosition: ccp(screenSize.width/2, screenSize.height/2)];
         
-        [self addChild:backgroundImg z:kBackgroundSpriteZValue];
+        [self addChild:backgroundImg];
     }
     
     return self;

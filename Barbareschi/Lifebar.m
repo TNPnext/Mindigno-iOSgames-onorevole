@@ -24,7 +24,7 @@
         length = 60.0;
         
         [self setScaleX: length];
-        [self setScaleY:0.5];
+        [self setScaleY:0.4];
         
     }
     

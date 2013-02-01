@@ -1,19 +1,19 @@
 //
-//  GameScene.m
+//  MainMenuScene.m
 //  Barbareschi
 //
-//  Created by Enrico on 24/01/13.
+//  Created by Enrico on 01/02/13.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameScene.h"
+#import "MainMenuScene.h"
+#import "MainMenuLayer.h"
 #import "BackgroundLayer.h"
-#import "GameplayLayer.h"
 #import "HeaderLayer.h"
 
-@implementation GameScene
+@implementation MainMenuScene
 
-- (id) init {
+- (id)init {
 
     self = [super init];
     if (self) {
@@ -22,10 +22,10 @@
         [self addChild: headerLayer z: kHeaderSpriteZValue];
         
         BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-        [self addChild:backgroundLayer z: kBackgroundSpriteZValue];
+        [self addChild: backgroundLayer z: kBackgroundSpriteZValue];
         
-        GameplayLayer *gameplayLayer = [GameplayLayer node];
-        [self addChild:gameplayLayer z: kGameplaySpriteBatchNodeZValue];
+        MainMenuLayer *mainMenuLayer = [MainMenuLayer node];
+        [self addChild: mainMenuLayer z: kGameplaySpriteBatchNodeZValue];
     }
     
     return self;

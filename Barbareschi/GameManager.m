@@ -2,6 +2,8 @@
 //  SpaceViking
 //
 #import "GameManager.h"
+
+#import "MainMenuScene.h"
 #import "GameScene.h"
 
 @implementation GameManager
@@ -317,7 +319,7 @@ static GameManager* _sharedGameManager = nil;
     switch (sceneID) {
             
         case kMainMenuScene: 
-            //sceneToRun = [MainMenuScene node];
+            sceneToRun = [MainMenuScene node];
             break;
         case kOptionsScene:
             //sceneToRun = [OptionsScene node];
@@ -348,7 +350,9 @@ static GameManager* _sharedGameManager = nil;
     if (sceneID < 100) {
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
             
-            CGSize screenSize = [CCDirector sharedDirector].winSizeInPixels; 
+            /*
+            CGSize screenSize = [CCDirector sharedDirector].winSizeInPixels;
+            
             if (screenSize.width == 960.0f) {
                 // iPhone 4 Retina
                 [sceneToRun setScaleX:0.9375f];
@@ -360,6 +364,7 @@ static GameManager* _sharedGameManager = nil;
                 [sceneToRun setScaleY:0.4166f];
                 CCLOG(@"GameMgr:Scaling for iPhone 3GS or older (non-retina)");
             }
+             */
         }
     }
     

@@ -87,7 +87,6 @@
             break;
             
         case kStateMorto:
-            PLAYSOUNDEFFECT(FREGATO_IL_CELLULARE);
             action = [CCMoveTo actionWithDuration:1.0 position:ccp([self position].x, [self position].y-[self adjustedBoundingBox].size.height-100)];
             break;
             
@@ -107,15 +106,15 @@
             PLAYSOUNDEFFECT(CENTO_PER_CENTO_ASSENZE);
             break;
             
-        case 10:
+        case 12:
             PLAYSOUNDEFFECT(ASSENTE_AL_PARLAMENTO);
             break;
             
-        case 14:
+        case 20:
             PLAYSOUNDEFFECT(PERCHE_NON_SI_DIMETTE);
             break;
             
-        case 18:
+        case 25:
             PLAYSOUNDEFFECT(PERCHE_MENA);
             break;
             
@@ -124,7 +123,7 @@
     }
     
     indiceSoundToPlay++;
-    if (indiceSoundToPlay > 22) {
+    if (indiceSoundToPlay > 30) {
         indiceSoundToPlay = 0;
     }
 }
@@ -136,9 +135,6 @@
     
     GameCharacter *barbareschi = (GameCharacter*)[[self parent] getChildByTag: kBarbareschiSpriteTagValue];
     CharacterStates barbareschiState = barbareschi.characterState;
-    
-    GameCharacter *cameraman = (GameCharacter*)[[self parent] getChildByTag: kCameramanSpriteTagValue];
-    CharacterStates cameramanState = cameraman.characterState;
     
     Lifebar *lifebar = (Lifebar*)[[[self parent] parent] getChildByTag: kLifebarIenaSpriteTagValue];
     
@@ -206,13 +202,14 @@
     }
     
     //Quando Barbareschi mena con il pugno il cameraman
-    if (barbareschiState == kStateAttacco_pugno && versoSinistra) {
+    GameCharacter *cameraman = (GameCharacter*)[[self parent] getChildByTag: kCameramanSpriteTagValue];
+    CharacterStates cameramanState = cameraman.characterState;
+    
+    if (barbareschiState == kStateAttacco_pugno && versoSinistra && cameramanState != kStateMorto) {
         //Se collide
-        if (CGRectIntersectsRect(myBox, characterBox) && cameramanState != kStateAttaccato_conPugno) {
+        if (CGRectIntersectsRect([barbareschi adjustedBoundingBox], [cameraman adjustedBoundingBox]) && cameramanState != kStateAttaccato_conPugno) {
             [self playNextSound];
-            NSLog(@"tam");
         }
-        
     }
     
     if (self.characterHealth <= 0) {

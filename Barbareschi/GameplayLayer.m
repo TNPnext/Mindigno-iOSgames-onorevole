@@ -17,17 +17,25 @@
 @implementation GameplayLayer
 
 - (void) initJoystickAndButtons {
+    
+    float scaleFactor = 0.52f;
+    if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
+        scaleFactor = 1.0f;
+    }
 
     SneakyJoystickSkinnedBase *joystickBase = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
     [joystickBase setPosition: ccp(96, 64)];
-    [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size:CGSizeMake(64, 32)]];
+    [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size:CGSizeMake(128, 64)]];
     //[joystickBase setBackgroundSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 128) radius:64]];
-    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:32]];
+    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:56]];
     
-    joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 128, 128)];
+    joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 256, 256)];
     [joystick retain];
     
     [joystickBase setJoystick: joystick];
+    
+    [joystickBase setScaleX: scaleFactor];
+    [joystickBase setScaleY: scaleFactor];
     
     [self addChild: joystickBase z: kControlSpriteZValue];
     
@@ -37,13 +45,16 @@
     [attackButtonBase setPosition: ccp(400, 64)];
     
     [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 150) radius:32]];
-    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:32]];
+    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:56]];
     
-    attackButton = [[SneakyButton alloc] initWithRect: CGRectMake(0, 0, 128, 128)];
+    attackButton = [[SneakyButton alloc] initWithRect: CGRectMake(0, 0, 256, 256)];
     [attackButton retain];
     [attackButton setIsToggleable: NO];
     
     [attackButtonBase setButton: attackButton];
+    
+    [attackButtonBase setScaleX: scaleFactor];
+    [attackButtonBase setScaleY: scaleFactor];
     
     [self addChild: attackButtonBase z: kControlSpriteZValue];
 }
@@ -72,7 +83,12 @@
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         float h_position = screenSize.height * 0.055f;
+        
         float scaleFactor = 0.52f;
+        if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
+            scaleFactor = 1.0f;
+        }
+        
         //
         
         Barbareschi *barbareschi = [[Barbareschi alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kBarbareschi_fermoFrameName]];
@@ -119,7 +135,7 @@
         [nuvolaGrande setScaleX:scaleFactor];
         [nuvolaGrande setScaleY:scaleFactor];
         
-        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.65f)];
+        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.63f)];
         //[nuvolaGrande setAnchorPoint:CGPointMake(0, 1)];
         
         [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
@@ -131,7 +147,7 @@
         [nuvolaMedia setScaleX:scaleFactor];
         [nuvolaMedia setScaleY:scaleFactor];
         
-        [nuvolaMedia setPosition: ccp(screenSize.width*0.55f, screenSize.height * 0.87f)];
+        [nuvolaMedia setPosition: ccp(screenSize.width*0.55f, screenSize.height * 0.83f)];
         //[nuvolaMedia setAnchorPoint:CGPointMake(0, 1)];
         
         [spriteBatchNodeGamePlay addChild:nuvolaMedia z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
@@ -143,7 +159,7 @@
         [nuvolaPiccola setScaleX:scaleFactor];
         [nuvolaPiccola setScaleY:scaleFactor];
         
-        [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.76f)];
+        [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.74f)];
         //[nuvolaPiccola setAnchorPoint:CGPointMake(0, 1)];
         
         [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
@@ -152,8 +168,8 @@
         
         Lifebar *lifeBarCameraman = [[Lifebar alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: @"lifebar.png"]];
 
-        [lifeBarCameraman setAnchorPoint: ccp(0, 1)];
-        [lifeBarCameraman setPosition: ccp(5, screenSize.height-5)];
+        [lifeBarCameraman setAnchorPoint: ccp(0, 0)];
+        [lifeBarCameraman setPosition: ccp(2, 2)];
         
         [self addChild:lifeBarCameraman z:kControlSpriteZValue tag:kLifebarCameramanSpriteTagValue];
         
@@ -161,8 +177,8 @@
         
         Lifebar *lifeBarIena = [[Lifebar alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: @"lifebar.png"]];
         
-        [lifeBarIena setAnchorPoint: ccp(1, 1)];
-        [lifeBarIena setPosition: ccp(screenSize.width-5, screenSize.height-5)];
+        [lifeBarIena setAnchorPoint: ccp(1, 0)];
+        [lifeBarIena setPosition: ccp(screenSize.width-2, 2)];
         
         [self addChild:lifeBarIena z:kControlSpriteZValue tag:kLifebarIenaSpriteTagValue];
         

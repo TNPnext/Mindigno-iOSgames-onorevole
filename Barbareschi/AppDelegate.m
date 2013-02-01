@@ -114,11 +114,10 @@
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene: [GameScene node]];
     
-    
     [[GameManager sharedGameManager] setupAudioEngine];
-    [[GameManager sharedGameManager] runSceneWithID: kGameLevel1];
+    [[GameManager sharedGameManager] runSceneWithID: kMainMenuScene];
+    //[[GameManager sharedGameManager] runSceneWithID: kGameLevel1];
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];

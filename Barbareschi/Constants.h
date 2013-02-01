@@ -4,6 +4,7 @@
 #define kBackgroundSpriteZValue 0
 #define kGameplaySpriteBatchNodeZValue 10
 #define kBarbareschiSpriteZValue 50
+#define kHeaderSpriteZValue 95
 #define kControlSpriteZValue 100
 
 

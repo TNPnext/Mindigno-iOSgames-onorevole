@@ -6,8 +6,10 @@
 	<dict/>
 	<key>kMainMenuScene</key>
 	<dict>
-		<key>CHORUS1</key>
-		<string>22k_space_viking_chorusV1.wav</string>
+		<key>INTRO</key>
+		<string>Intro.mp3</string>
+		<key>RAGGIUNGIAMO_IN_SICILIA</key>
+		<string>RaggiungiamoInSicilia.mp3</string>
 	</dict>
 	<key>kOptionsScene</key>
 	<dict/>
@@ -17,8 +19,6 @@
 	<dict/>
 	<key>kGameLevel1</key>
 	<dict>
-		<key>INTRO</key>
-		<string>Intro.mp3</string>
 		<key>FINE</key>
 		<string>Fine.mp3</string>
 		<key>CAZZOTTO</key>
@@ -37,8 +37,6 @@
 		<string>Teppistello.mp3</string>
 		<key>VERGOGNA</key>
 		<string>Vergogna.mp3</string>
-		<key>RAGGIUNGIAMO_IN_SICILIA</key>
-		<string>RaggiungiamoInSicilia.mp3</string>
 		<key>CENTO_PER_CENTO_ASSENZE</key>
 		<string>CentoPerCentoAssenze.mp3</string>
 		<key>ASSENTE_AL_PARLAMENTO</key>
