@@ -19,18 +19,38 @@
 
 - (void) initJoystickAndButtons {
     
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
     float scaleFactor = 0.52f;
     if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
         scaleFactor = 1.0f;
     }
+    
+    CGRect rectControl = CGRectMake(0, 0, 256, 256);
+    CGSize sizeControl = CGSizeMake(128, 64);
+    double radius = 56;
+    CGPoint positionJoystick = ccp(96, 64);
+    CGPoint positionAttack = ccp(400, 64);
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        rectControl = CGRectMake(0, 0, 512, 512);
+        sizeControl = CGSizeMake(256, 128);
+        radius = 112;
+        positionJoystick = ccp(192, 128);
+        positionAttack = ccp(850, 128);
+    
+    } else if (screenSize.width == 568) {
+        //iPhone 5
+        positionAttack = ccp(480, 64);
+    }
 
     joystickBase = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
-    [joystickBase setPosition: ccp(96, 64)];
-    [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size:CGSizeMake(128, 64)]];
-    //[joystickBase setBackgroundSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 128) radius:64]];
-    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:56]];
+    [joystickBase setPosition: positionJoystick];
+    [joystickBase setBackgroundSprite: [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 128) size: sizeControl]];
+    [joystickBase setThumbSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:radius]];
     
-    joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 256, 256)];
+    joystick = [[SneakyJoystick alloc] initWithRect:rectControl];
     [joystick retain];
     
     [joystickBase setJoystick: joystick];
@@ -43,12 +63,12 @@
     //
     
     attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
-    [attackButtonBase setPosition: ccp(400, 64)];
+    [attackButtonBase setPosition: positionAttack];
     
-    [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 150) radius:32]];
-    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:56]];
+    [attackButtonBase setDefaultSprite: [ColoredCircleSprite circleWithColor:ccc4(255, 255, 255, 150) radius:radius]];
+    [attackButtonBase setPressSprite: [ColoredCircleSprite circleWithColor:ccc4(0, 0, 0, 150) radius:radius]];
     
-    attackButton = [[SneakyButton alloc] initWithRect: CGRectMake(0, 0, 256, 256)];
+    attackButton = [[SneakyButton alloc] initWithRect: rectControl];
     [attackButton retain];
     [attackButton setIsToggleable: NO];
     
@@ -79,8 +99,14 @@
         
         //
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameplaySprite_default.plist"];
-        spriteBatchNodeGamePlay = [CCSpriteBatchNode batchNodeWithFile:@"GameplaySprite_default.png"];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameplaySprite-ipad.plist"];
+            spriteBatchNodeGamePlay = [CCSpriteBatchNode batchNodeWithFile:@"GameplaySprite-ipad.png"];
+            
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameplaySprite.plist"];
+            spriteBatchNodeGamePlay = [CCSpriteBatchNode batchNodeWithFile:@"GameplaySprite.png"];
+        }
         
         [self addChild: spriteBatchNodeGamePlay z: kGameplaySpriteBatchNodeZValue];
         
@@ -99,8 +125,8 @@
         [barbareschi setJoystick: joystick];
         [barbareschi setAttackButton: attackButton];
         
-        [barbareschi setScaleX:scaleFactor];
-        [barbareschi setScaleY:scaleFactor];
+        //[barbareschi setScaleX:scaleFactor];
+        //[barbareschi setScaleY:scaleFactor];
         
         [barbareschi setAnchorPoint:CGPointMake(0.5f, 0)];
         [barbareschi setPosition: ccp(screenSize.width/2, h_position)];
@@ -111,8 +137,8 @@
         
         Iena *iena = [[Iena alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kIena_fermoFrameName]];
         
-        [iena setScaleX:scaleFactor];
-        [iena setScaleY:scaleFactor];
+        //[iena setScaleX:scaleFactor];
+        //[iena setScaleY:scaleFactor];
         
         [iena setAnchorPoint:CGPointMake(0.5f, 0)];
         [iena setPosition: ccp(screenSize.width-56.0f, h_position)];
@@ -123,8 +149,8 @@
         
         Cameraman *cameraman = [[Cameraman alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kCameraman_fermoFrameName]];
         
-        [cameraman setScaleX:scaleFactor];
-        [cameraman setScaleY:scaleFactor];
+        //[cameraman setScaleX:scaleFactor];
+        //[cameraman setScaleY:scaleFactor];
         
         [cameraman setAnchorPoint:CGPointMake(0.5f, 0)];
         [cameraman setPosition: ccp(50.0f, h_position)];
@@ -135,37 +161,37 @@
         
         Nuvola *nuvolaGrande = [[Nuvola alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kNuvolaGrandeFrameName]];
         
-        [nuvolaGrande setScaleX:scaleFactor];
-        [nuvolaGrande setScaleY:scaleFactor];
+        //[nuvolaGrande setScaleX:scaleFactor];
+        //[nuvolaGrande setScaleY:scaleFactor];
         
-        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.63f)];
+        [nuvolaGrande setPosition: ccp(screenSize.width*0.15f, screenSize.height*0.68f)];
         //[nuvolaGrande setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaGrande z: kNuvoleSpriteZValue tag:kNuvolaSpriteTagValue];
         
         //
         
         Nuvola *nuvolaMedia = [[Nuvola alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kNuvolaMediaFrameName]];
         
-        [nuvolaMedia setScaleX:scaleFactor];
-        [nuvolaMedia setScaleY:scaleFactor];
+        //[nuvolaMedia setScaleX:scaleFactor];
+        //[nuvolaMedia setScaleY:scaleFactor];
         
         [nuvolaMedia setPosition: ccp(screenSize.width*0.55f, screenSize.height * 0.83f)];
         //[nuvolaMedia setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaMedia z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaMedia z: kNuvoleSpriteZValue tag:kNuvolaSpriteTagValue];
         
         //
         
         Nuvola *nuvolaPiccola = [[Nuvola alloc] initWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: kNuvolaPiccolaFrameName]];
         
-        [nuvolaPiccola setScaleX:scaleFactor];
-        [nuvolaPiccola setScaleY:scaleFactor];
+        //[nuvolaPiccola setScaleX:scaleFactor];
+        //[nuvolaPiccola setScaleY:scaleFactor];
         
         [nuvolaPiccola setPosition: ccp(screenSize.width*0.85f, screenSize.height * 0.74f)];
         //[nuvolaPiccola setAnchorPoint:CGPointMake(0, 1)];
         
-        [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kGameplaySpriteBatchNodeZValue tag:kNuvolaSpriteTagValue];
+        [spriteBatchNodeGamePlay addChild:nuvolaPiccola z: kNuvoleSpriteZValue tag:kNuvolaSpriteTagValue];
         
         ///
         

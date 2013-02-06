@@ -8,13 +8,13 @@
 
 #import "Cameraman.h"
 #import "Lifebar.h"
-#import "GameManager.h";
+#import "GameManager.h"
 
 @implementation Cameraman
 
 - (void)spostatiVersoSx:(BOOL)yOrNot barbareschi:(GameObject*)barbareschi conTempo:(ccTime)deltaTime {
     
-    double constVelocity = -0.43;
+    double constVelocity = -0.52;
     
     if (!yOrNot) {
         constVelocity = -constVelocity;
@@ -199,6 +199,10 @@
                              boundingBox.origin.y,
                              boundingBox.size.width - xCropAmount,
                              boundingBox.size.height - yCropAmount);
+    
+    if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+        boundingBox = CGRectMake(boundingBox.origin.x * 2, boundingBox.origin.y * 2, boundingBox.size.width * 2, boundingBox.size.height * 2);
+    }
     
     return boundingBox;
 }

@@ -37,8 +37,14 @@
     } else {
         
         CGRect box = [self adjustedBoundingBox];
-        double minLimit = (box.size.width/2.0);
-        double maxLimit = screenSize.width-(box.size.width/2.0);
+        
+        double divFactor = 2.0;
+        if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+            divFactor = 4.0;
+        }
+        
+        double minLimit = (box.size.width/divFactor);
+        double maxLimit = screenSize.width-(box.size.width/divFactor);
         
         // Clamp for iPhone, iPhone 4, or iPod touch
         if (currentSpritePosition.x < minLimit) {

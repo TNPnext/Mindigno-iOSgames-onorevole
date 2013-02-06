@@ -245,6 +245,10 @@
                              boundingBox.size.width - xCropAmount,
                              boundingBox.size.height - yCropAmount);
     
+    if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+        boundingBox = CGRectMake(boundingBox.origin.x * 2, boundingBox.origin.y * 2, boundingBox.size.width * 2, boundingBox.size.height * 2);
+    }
+    
     return boundingBox;
 }
 

@@ -22,10 +22,16 @@
     if (self) {
         
         length = 60.0;
+        double heightScaling = 0.4;
+        
+        //Se è retina (quindi iphone 5, 4 e 4S
+        if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+            length = length * 2;
+            heightScaling = heightScaling * 2;
+        }
         
         [self setScaleX: length];
-        [self setScaleY:0.4];
-        
+        [self setScaleY: heightScaling];
     }
     
     return self;

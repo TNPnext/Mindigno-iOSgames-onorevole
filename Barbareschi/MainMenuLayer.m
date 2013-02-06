@@ -43,21 +43,27 @@
     
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
+    double scaleFactor = 0.50;
+    if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+        scaleFactor = scaleFactor * 2.0;
+    }
+    
     CCMenuItemImage *playGameButton = [CCMenuItemImage
                                        itemFromNormalImage:@"PlayButtonNormal.png"
                                        selectedImage:@"PlayButtonSelected.png"
                                        disabledImage:nil
                                        target:self
                                        selector:@selector(preGameScene)];
-    [playGameButton setScaleX: 0.52];
-    [playGameButton setScaleY: 0.52];
+    [playGameButton setScaleX: scaleFactor];
+    [playGameButton setScaleY: scaleFactor];
     
     mainMenu = [CCMenu menuWithItems: playGameButton ,nil];
     
     [mainMenu alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
-    [mainMenu setPosition: ccp(screenSize.width * 2.0f, screenSize.height / 1.45f)];
+    double height = screenSize.height / 1.75f;
+    [mainMenu setPosition: ccp(screenSize.width * 2.0f, height)];
     
-    id moveAction = [CCMoveTo actionWithDuration:1.2f position:ccp(screenSize.width * 0.85f, screenSize.height/1.45f)];
+    id moveAction = [CCMoveTo actionWithDuration:1.2f position:ccp(screenSize.width * 0.78f, height)];
     id moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
     id playSound = [CCCallFunc actionWithTarget:self selector:@selector(playIntro)];
     

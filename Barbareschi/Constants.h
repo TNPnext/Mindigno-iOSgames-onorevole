@@ -2,7 +2,8 @@
 // Constants used
 
 #define kBackgroundSpriteZValue 0
-#define kGameplaySpriteBatchNodeZValue 10
+#define kNuvoleSpriteZValue 10
+#define kGameplaySpriteBatchNodeZValue 25
 #define kBarbareschiSpriteZValue 50
 #define kFinalGameSpriteZValue 90
 #define kHeaderSpriteZValue 95
@@ -17,28 +18,22 @@
 #define kLifebarCameramanSpriteTagValue 5
 
 
-#define kBarbareschiIenaDamage 30
-#define kBarbareschiCameramanDamage 40
+#define kBarbareschiIenaDamage 3
+#define kBarbareschiCameramanDamage 4
 
 
 typedef enum {
     
     kNoSceneUninitialized=0,
     kMainMenuScene=1,
-    kOptionsScene=2,
-    kCreditsScene=3,
-    kLevelCompleteScene=4,
     kGameLevel1=101
     
 } SceneTypes;
 
 typedef enum {
     
-    kLinkTypeBookSite,
-    kLinkTypeDeveloperSiteRod,
-    kLinkTypeDeveloperSiteRay,
-    kLinkTypeArtistSite,
-    kLinkTypeMusicianSite
+    kLinkTypeMindignoSite,
+    kLinkTypeDeveloperSite
     
 } LinkTypes;
 

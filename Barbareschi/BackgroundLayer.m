@@ -18,7 +18,20 @@
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *backgroundImg = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite *backgroundImg;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            backgroundImg = [CCSprite spriteWithFile:@"background-ipad.png"];
+            
+        } else {
+            
+            //iPhone 5
+            if (screenSize.width == 568) {
+                backgroundImg = [CCSprite spriteWithFile:@"background-iphone5.png"];
+            } else {
+                backgroundImg = [CCSprite spriteWithFile:@"background.png"];
+            }
+        }
+        
         [backgroundImg setPosition: ccp(screenSize.width/2, screenSize.height/2)];
         
         [self addChild:backgroundImg];

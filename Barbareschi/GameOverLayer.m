@@ -7,18 +7,20 @@
 //
 
 #import "GameOverLayer.h"
-
+#import "GameManager.h"
 
 @implementation GameOverLayer
 
 -(void)buttonIndignatiPressed {
     
     CCLOG(@"Indignati button pressed");
+    [[GameManager sharedGameManager] openSiteWithLinkType: kLinkTypeMindignoSite];
 }
 
--(void)buttonSharePressed {
+-(void)buttonGoToMenuPressed {
     
-    CCLOG(@"Share button pressed");
+    CCLOG(@"Go to menu button pressed");
+    [[GameManager sharedGameManager] runSceneWithID: kMainMenuScene];
 }
 
 -(id)init {
@@ -28,15 +30,26 @@
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *trasparent = [CCSprite spriteWithFile:@"BlackTrasparent.png"];
+        CCSprite *trasparent;
+        if (screenSize.width == 568) {
+            //iPhone 5
+            trasparent = [CCSprite spriteWithFile:@"BlackTrasparent-iphone5.png"];
+        } else {
+            trasparent = [CCSprite spriteWithFile:@"BlackTrasparent.png"];
+        }
+        
         [trasparent setPosition:ccp(screenSize.width/2, screenSize.height/2)];
         [self addChild: trasparent];
         
         //
         
-        float scaleFactor = 0.52f;
+        float scaleFactor = 0.5f;
+        float scaleFactorButtonIndignati = 0.85f;
+        float scaleFactorButtonMenu = 0.25f;
         if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
-            scaleFactor = 1.0f;
+            scaleFactor = scaleFactor * 2.0;
+            scaleFactorButtonIndignati = scaleFactorButtonIndignati * 2.0;
+            scaleFactorButtonMenu = scaleFactorButtonMenu * 2.0;
         }
 
         CCSprite *barbareschi = [CCSprite spriteWithFile: @"Fine_barbareschi.png"];
@@ -74,8 +87,8 @@
                                             target:self
                                             selector:@selector(buttonIndignatiPressed)];
         
-        [indignatiButton setScaleX: 0.85];
-        [indignatiButton setScaleY: 0.85];
+        [indignatiButton setScaleX: scaleFactorButtonIndignati];
+        [indignatiButton setScaleY: scaleFactorButtonIndignati];
         
         CCMenu *menuIndignati = [CCMenu menuWithItems: indignatiButton, nil];
         [menuIndignati setPosition: ccp(screenSize.width * 2, screenSize.height/2.4f)];
@@ -90,6 +103,29 @@
         
         //
         
+        CCMenuItemImage *menuButtonBack = [CCMenuItemImage
+                                           itemFromNormalImage:@"PlayButtonNormal.png"
+                                           selectedImage:@"PlayButtonSelected.png"
+                                           disabledImage:nil
+                                           target:self
+                                           selector:@selector(buttonGoToMenuPressed)];
+        
+        [menuButtonBack setScaleX: scaleFactorButtonMenu];
+        [menuButtonBack setScaleY: scaleFactorButtonMenu];
+        
+        CCMenu *menuButton = [CCMenu menuWithItems: menuButtonBack, nil];
+        [menuButton setPosition: ccp(screenSize.width * -0.10f, screenSize.height * 0.20f)];
+        [self addChild:menuButton];
+
+        moveAction = [CCMoveTo actionWithDuration:1.5f position:ccp(screenSize.width * 0.10f, screenSize.height * 0.20f)];
+        moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
+        sequenceAction = [CCSequence actions: moveEffect, nil];
+        
+        [menuButton runAction:sequenceAction];
+        
+        //
+        
+        /*
         CCMenuItemImage *shareButton = [CCMenuItemImage
                                         itemFromNormalImage:@"share.png"
                                         selectedImage:@"share.png"
@@ -103,14 +139,16 @@
         CCMenu *menuShare = [CCMenu menuWithItems: shareButton, nil];
         [menuShare setPosition: ccp(screenSize.width * 0.88f, screenSize.height * 0.20f)];
         [self addChild:menuShare];
+         */
         
         //
         
+        /*
         CCLabelTTF *labelPunteggio = [CCLabelTTF labelWithString:@"108 pt" fontName:@"Arial" fontSize:28];
         
         [labelPunteggio setPosition: ccp(screenSize.width * 0.72, screenSize.height * 0.20)];
         [self addChild:labelPunteggio];
-        
+        */
     }
     
     return self;

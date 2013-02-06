@@ -95,15 +95,6 @@ static GameManager* _sharedGameManager = nil;
         case kMainMenuScene:
             result = @"kMainMenuScene";
             break;
-        case kOptionsScene:
-            result = @"kOptionsScene";
-            break;
-        case kCreditsScene:
-            result = @"kCreditsScene";
-            break;
-        case kLevelCompleteScene:
-            result = @"kLevelCompleteScene";
-            break;
         case kGameLevel1:
             result = @"kGameLevel1";
             break;
@@ -311,6 +302,10 @@ static GameManager* _sharedGameManager = nil;
     return self;
 }
 
+- (void) resetGame {
+    hasPlayerDied = NO;
+}
+
 -(void)runSceneWithID:(SceneTypes)sceneID {
     
     SceneTypes oldScene = currentScene;
@@ -321,16 +316,8 @@ static GameManager* _sharedGameManager = nil;
         case kMainMenuScene: 
             sceneToRun = [MainMenuScene node];
             break;
-        case kOptionsScene:
-            //sceneToRun = [OptionsScene node];
-            break;
-        case kCreditsScene:
-            //sceneToRun = [CreditsScene node];
-            break;
-        case kLevelCompleteScene:
-            //sceneToRun = [LevelCompleteScene node];
-            break;
-        case kGameLevel1: 
+        case kGameLevel1:
+            [self resetGame];
             sceneToRun = [GameScene node];
             break;
             
@@ -346,11 +333,11 @@ static GameManager* _sharedGameManager = nil;
         return;
     }
     
+    /*
     // Menu Scenes have a value of < 100
     if (sceneID < 100) {
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
             
-            /*
             CGSize screenSize = [CCDirector sharedDirector].winSizeInPixels;
             
             if (screenSize.width == 960.0f) {
@@ -364,9 +351,9 @@ static GameManager* _sharedGameManager = nil;
                 [sceneToRun setScaleY:0.4166f];
                 CCLOG(@"GameMgr:Scaling for iPhone 3GS or older (non-retina)");
             }
-             */
         }
     }
+     */
     
     [self performSelectorInBackground:@selector(loadAudioForSceneWithID:) withObject:[NSNumber numberWithInt:currentScene]];
     
@@ -374,7 +361,8 @@ static GameManager* _sharedGameManager = nil;
         [[CCDirector sharedDirector] runWithScene:sceneToRun];
         
     } else {
-        [[CCDirector sharedDirector] replaceScene:sceneToRun];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0f scene:sceneToRun]];
+        //[[CCDirector sharedDirector] replaceScene:sceneToRun];
     }
     
     [self performSelectorInBackground:@selector(unloadAudioForSceneWithID:) withObject:[NSNumber numberWithInt:oldScene]];
@@ -384,29 +372,14 @@ static GameManager* _sharedGameManager = nil;
 -(void)openSiteWithLinkType:(LinkTypes)linkTypeToOpen {
     
     NSURL *urlToOpen = nil;
-    if (linkTypeToOpen == kLinkTypeBookSite) {
+    
+    if (linkTypeToOpen == kLinkTypeMindignoSite) {
         CCLOG(@"Opening Book Site");
-        urlToOpen = 
-        [NSURL URLWithString:
-         @"http://www.informit.com/title/9780321735621"];
-    } else if (linkTypeToOpen == kLinkTypeDeveloperSiteRod) {
-        CCLOG(@"Opening Developer Site for Rod");
-        urlToOpen = [NSURL URLWithString:@"http://www.prop.gr"];
-    } else if (linkTypeToOpen == kLinkTypeDeveloperSiteRay) {
-        CCLOG(@"Opening Developer Site for Ray");
-        urlToOpen = 
-        [NSURL URLWithString:@"http://www.raywenderlich.com/"];
-    } else if (linkTypeToOpen == kLinkTypeArtistSite) {
-        CCLOG(@"Opening Artist Site");
-        urlToOpen = [NSURL URLWithString:@"http://EricStevensArt.com"];
-    } else if (linkTypeToOpen == kLinkTypeMusicianSite) {
-        CCLOG(@"Opening Musician Site");
-        urlToOpen = 
-        [NSURL URLWithString:@"http://www.mikeweisermusic.com/"];
-    } else {
-        CCLOG(@"Defaulting to Cocos2DBook.com Blog Site");
-        urlToOpen = 
-        [NSURL URLWithString:@"http://www.cocos2dbook.com"];
+        urlToOpen = [NSURL URLWithString: @"http://www.mindigno.com/microposts/50f2b629c0e33e0002000141"];
+        
+    } else if (linkTypeToOpen == kLinkTypeDeveloperSite) {
+        CCLOG(@"Opening Book Site");
+        urlToOpen = [NSURL URLWithString: @"http://www.enricodemichele.com"];
     }
     
     if (![[UIApplication sharedApplication] openURL:urlToOpen]) {
