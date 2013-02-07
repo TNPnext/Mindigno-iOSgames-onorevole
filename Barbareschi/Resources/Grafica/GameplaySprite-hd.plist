@@ -770,7 +770,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{988, 1668}, {2, 30}}</string>
+			<string>{{643, 1504}, {2, 30}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -792,7 +792,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{4, 1501}, {332, 119}}</string>
+			<string>{{7, 1507}, {332, 119}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
