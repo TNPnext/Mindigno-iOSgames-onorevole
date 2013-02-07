@@ -92,6 +92,9 @@
             constVelocity = -constVelocity;
         }
         
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            constVelocity = constVelocity * 2;
+        }
     }
     return self;
 }

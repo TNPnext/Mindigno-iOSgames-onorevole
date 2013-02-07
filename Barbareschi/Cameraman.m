@@ -14,8 +14,7 @@
 
 - (void)spostatiVersoSx:(BOOL)yOrNot barbareschi:(GameObject*)barbareschi conTempo:(ccTime)deltaTime {
     
-    double constVelocity = -0.52;
-    
+    double constVelocity = originalConstVelocity;
     if (!yOrNot) {
         constVelocity = -constVelocity;
     }
@@ -270,6 +269,11 @@
         self.characterHealth = 100;
     
         [self initAnimations];
+        
+        originalConstVelocity = -0.52;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            originalConstVelocity = originalConstVelocity * 2;
+        }
     }
     return self;
 }

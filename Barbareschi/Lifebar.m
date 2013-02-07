@@ -24,6 +24,11 @@
         length = 60.0;
         double heightScaling = 0.4;
         
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            length = 120;
+            heightScaling += 0.78;
+        }
+        
         //Se è retina (quindi iphone 5, 4 e 4S
         if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
             length = length * 2;

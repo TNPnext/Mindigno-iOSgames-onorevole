@@ -26,7 +26,7 @@
 
 -(void)applyJoystick:(SneakyJoystick *)aJoystick forTimeDelta:(float)deltaTime character:(GameObject*)character {
     
-    double constVelocity = 0.5;
+    double constVelocity = originalConstVelocity;
     if (aJoystick.velocity.x < 0){
         constVelocity = -constVelocity;
     }
@@ -300,6 +300,11 @@
         indiceSoundToPlay = 0;
         
         [self setFlipX: YES];
+        
+        originalConstVelocity = 0.5;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            originalConstVelocity = originalConstVelocity * 2;
+        }
     }
     return self;
 }

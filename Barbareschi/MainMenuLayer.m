@@ -39,42 +39,6 @@
     [mainMenu runAction:sequenceAction];
 }
 
--(void)displayMainMenu {
-    
-    CGSize screenSize = [CCDirector sharedDirector].winSize;
-    
-    double scaleFactor = 0.50;
-    if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
-        scaleFactor = scaleFactor * 2.0;
-    }
-    
-    CCMenuItemImage *playGameButton = [CCMenuItemImage
-                                       itemFromNormalImage:@"PlayButtonNormal.png"
-                                       selectedImage:@"PlayButtonSelected.png"
-                                       disabledImage:nil
-                                       target:self
-                                       selector:@selector(preGameScene)];
-    [playGameButton setScaleX: scaleFactor];
-    [playGameButton setScaleY: scaleFactor];
-    
-    mainMenu = [CCMenu menuWithItems: playGameButton ,nil];
-    
-    [mainMenu alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
-    double height = screenSize.height / 1.75f;
-    [mainMenu setPosition: ccp(screenSize.width * 2.0f, height)];
-    
-    id moveAction = [CCMoveTo actionWithDuration:1.2f position:ccp(screenSize.width * 0.78f, height)];
-    id moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
-    id playSound = [CCCallFunc actionWithTarget:self selector:@selector(playIntro)];
-    
-    id sequenceAction = [CCSequence actions: moveEffect, playSound, nil];
-    
-    [mainMenu runAction:sequenceAction];
-    
-    [self addChild:mainMenu];
-}
-
-
 - (id)init {
     
     self = [super init];
@@ -82,9 +46,13 @@
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
-        float scaleFactor = 0.52f;
+        float scaleFactor = 0.50f;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            scaleFactor += 0.60f;
+        }
         if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
-            scaleFactor = 1.0f;
+            scaleFactor = scaleFactor * 2;
         }
         
         //
@@ -105,7 +73,32 @@
         
         //
         
-        [self displayMainMenu];
+        //Create menu
+        CCMenuItemImage *playGameButton = [CCMenuItemImage
+                                           itemFromNormalImage:@"PlayButtonNormal.png"
+                                           selectedImage:@"PlayButtonSelected.png"
+                                           disabledImage:nil
+                                           target:self
+                                           selector:@selector(preGameScene)];
+        
+        [playGameButton setScaleX: scaleFactor];
+        [playGameButton setScaleY: scaleFactor];
+        
+        mainMenu = [CCMenu menuWithItems: playGameButton ,nil];
+        
+        [mainMenu alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
+        double height = screenSize.height / 1.75f;
+        [mainMenu setPosition: ccp(screenSize.width * 2.0f, height)];
+        
+        id moveAction = [CCMoveTo actionWithDuration:1.2f position:ccp(screenSize.width * 0.78f, height)];
+        id moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
+        id playSound = [CCCallFunc actionWithTarget:self selector:@selector(playIntro)];
+        
+        id sequenceAction = [CCSequence actions: moveEffect, playSound, nil];
+        
+        [mainMenu runAction:sequenceAction];
+        
+        [self addChild:mainMenu];
     }
     
     return self;

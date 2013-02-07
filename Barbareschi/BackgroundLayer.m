@@ -23,7 +23,6 @@
             backgroundImg = [CCSprite spriteWithFile:@"background-ipad.png"];
             
         } else {
-            
             //iPhone 5
             if (screenSize.width == 568) {
                 backgroundImg = [CCSprite spriteWithFile:@"background-iphone5.png"];

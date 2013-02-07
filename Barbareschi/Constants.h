@@ -18,8 +18,8 @@
 #define kLifebarCameramanSpriteTagValue 5
 
 
-#define kBarbareschiIenaDamage 3
-#define kBarbareschiCameramanDamage 4
+#define kBarbareschiIenaDamage 30
+#define kBarbareschiCameramanDamage 40
 
 
 typedef enum {

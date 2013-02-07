@@ -31,11 +31,18 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
         CCSprite *trasparent;
-        if (screenSize.width == 568) {
-            //iPhone 5
-            trasparent = [CCSprite spriteWithFile:@"BlackTrasparent-iphone5.png"];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            trasparent = [CCSprite spriteWithFile:@"BlackTrasparent-ipad.png"];
+            
         } else {
-            trasparent = [CCSprite spriteWithFile:@"BlackTrasparent.png"];
+        
+            if (screenSize.width == 568) {
+                //iPhone 5
+                trasparent = [CCSprite spriteWithFile:@"BlackTrasparent-iphone5.png"];
+            } else {
+                trasparent = [CCSprite spriteWithFile:@"BlackTrasparent.png"];
+            }
         }
         
         [trasparent setPosition:ccp(screenSize.width/2, screenSize.height/2)];
@@ -46,6 +53,19 @@
         float scaleFactor = 0.5f;
         float scaleFactorButtonIndignati = 0.85f;
         float scaleFactorButtonMenu = 0.25f;
+        
+        CGSize sizeFrase = CGSizeMake(200, 100);
+        int fontSize = 18;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            scaleFactor += 0.60f;
+            scaleFactorButtonIndignati += 0.85f;
+            scaleFactorButtonMenu += 0.25f;
+            
+            fontSize = 36;
+            sizeFrase = CGSizeMake(400, 200);
+        }
+        
         if ([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
             scaleFactor = scaleFactor * 2.0;
             scaleFactorButtonIndignati = scaleFactorButtonIndignati * 2.0;
@@ -70,10 +90,10 @@
         
         CCLabelTTF *fraseMagica = [CCLabelTTF
                                    labelWithString:@"Pensi che le cose non possano cambiare?\nAnche tu puoi fare la differenza."
-                                   dimensions:CGSizeMake(200, 100)
+                                   dimensions:sizeFrase
                                    alignment:UITextAlignmentCenter
                                    lineBreakMode:UILineBreakModeWordWrap
-                                   fontName:@"Arial" fontSize:18];
+                                   fontName:@"Arial" fontSize:fontSize];
         
         [fraseMagica setPosition: ccp(screenSize.width * 0.78, screenSize.height * 0.65)];
         [self addChild:fraseMagica];

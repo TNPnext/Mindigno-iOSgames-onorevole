@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>barbareschi_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{32, 0}, {250, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{16, -0}</string>
+			<key>spriteSize</key>
+			<string>{250, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {250, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>barbareschi_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{44, 0}, {198, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{2, -0}</string>
+			<key>spriteSize</key>
+			<string>{198, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{254, 0}, {198, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>barbareschi_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{28, 0}, {170, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{-28, -0}</string>
+			<key>spriteSize</key>
+			<string>{170, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{462, 0}, {170, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>barbareschi_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{47, 0}, {122, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{-33, -0}</string>
+			<key>spriteSize</key>
+			<string>{122, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{640, 0}, {122, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>barbareschi_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{8, 4}, {274, 363}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -2}</string>
+			<key>spriteSize</key>
+			<string>{274, 363}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{778, 0}, {274, 363}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>barbareschi_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 4}, {274, 363}}</string>
+			<key>spriteOffset</key>
+			<string>{-4, -2}</string>
+			<key>spriteSize</key>
+			<string>{274, 363}</string>
+			<key>spriteSourceSize</key>
+			<string>{282, 367}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1060, 0}, {274, 363}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {214, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -0}</string>
+			<key>spriteSize</key>
+			<string>{214, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1352, 0}, {214, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {214, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -0}</string>
+			<key>spriteSize</key>
+			<string>{214, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1580, 0}, {214, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{6, 0}, {224, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{3, -0}</string>
+			<key>spriteSize</key>
+			<string>{224, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1808, 0}, {224, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 1}, {228, 349}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -0}</string>
+			<key>spriteSize</key>
+			<string>{228, 349}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 392}, {228, 349}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{3, 8}, {180, 343}}</string>
+			<key>spriteOffset</key>
+			<string>{-22, -4}</string>
+			<key>spriteSize</key>
+			<string>{180, 343}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{252, 384}, {180, 343}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 0}, {180, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-23, -0}</string>
+			<key>spriteSize</key>
+			<string>{180, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{424, 372}, {180, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{6, 1}, {176, 349}}</string>
+			<key>spriteOffset</key>
+			<string>{-21, -0}</string>
+			<key>spriteSize</key>
+			<string>{176, 349}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{600, 380}, {176, 349}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {214, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -0}</string>
+			<key>spriteSize</key>
+			<string>{214, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{776, 376}, {214, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {214, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -0}</string>
+			<key>spriteSize</key>
+			<string>{214, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1000, 380}, {214, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{6, 0}, {224, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{3, -0}</string>
+			<key>spriteSize</key>
+			<string>{224, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1220, 380}, {224, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 1}, {228, 349}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -0}</string>
+			<key>spriteSize</key>
+			<string>{228, 349}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1464, 388}, {228, 349}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{3, 8}, {180, 343}}</string>
+			<key>spriteOffset</key>
+			<string>{-22, -4}</string>
+			<key>spriteSize</key>
+			<string>{180, 343}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1708, 392}, {180, 343}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 0}, {180, 351}}</string>
+			<key>spriteOffset</key>
+			<string>{-23, -0}</string>
+			<key>spriteSize</key>
+			<string>{180, 351}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 776}, {180, 351}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>cameraman_ferito_07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{6, 1}, {176, 349}}</string>
+			<key>spriteOffset</key>
+			<string>{-21, -0}</string>
+			<key>spriteSize</key>
+			<string>{176, 349}</string>
+			<key>spriteSourceSize</key>
+			<string>{230, 351}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{184, 776}, {176, 349}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{1, 0}, {252, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, -0}</string>
+			<key>spriteSize</key>
+			<string>{252, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{368, 764}, {252, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{30, 0}, {230, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{15, -0}</string>
+			<key>spriteSize</key>
+			<string>{230, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{652, 760}, {230, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {256, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, -0}</string>
+			<key>spriteSize</key>
+			<string>{256, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{908, 756}, {256, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1176, 752}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1448, 752}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {256, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, -0}</string>
+			<key>spriteSize</key>
+			<string>{256, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1728, 760}, {256, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 1156}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{1, 0}, {252, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, -0}</string>
+			<key>spriteSize</key>
+			<string>{252, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{272, 1156}, {252, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{30, 0}, {230, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{15, -0}</string>
+			<key>spriteSize</key>
+			<string>{230, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{548, 1156}, {230, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {256, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, -0}</string>
+			<key>spriteSize</key>
+			<string>{256, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{796, 1148}, {256, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1084, 1140}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1356, 1148}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {256, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, -0}</string>
+			<key>spriteSize</key>
+			<string>{256, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1660, 1152}, {256, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>iena_ferita_07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {260, 358}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{260, 358}</string>
+			<key>spriteSourceSize</key>
+			<string>{260, 358}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 1564}, {260, 358}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lifebar.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {2, 30}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{2, 30}</string>
+			<key>spriteSourceSize</key>
+			<string>{2, 30}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{320, 1580}, {2, 30}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>nuvola_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {599, 214}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{599, 214}</string>
+			<key>spriteSourceSize</key>
+			<string>{599, 214}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{660, 1556}, {599, 214}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>nuvola_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {295, 125}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{295, 125}</string>
+			<key>spriteSourceSize</key>
+			<string>{295, 125}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{352, 1672}, {295, 125}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>nuvola_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {216, 83}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{216, 83}</string>
+			<key>spriteSourceSize</key>
+			<string>{216, 83}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{432, 1556}, {216, 83}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{2048, 2048}</string>
+		<key>name</key>
+		<string>SpritesheetGameplay</string>
+		<key>target</key>
+		<dict>
+			<key>name</key>
+			<string>default</string>
+			<key>textureFileName</key>
+			<string>SpritesheetGameplay_default</string>
+			<key>textureFileExtension</key>
+			<string>.png</string>
+			<key>coordinatesFileName</key>
+			<string>SpritesheetGameplay_default</string>
+			<key>coordinatesFileExtension</key>
+			<string>.plist</string>
+			<key>premultipliedAlpha</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>

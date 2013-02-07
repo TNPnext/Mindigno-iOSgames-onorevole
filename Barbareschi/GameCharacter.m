@@ -25,36 +25,24 @@
     
     CGPoint currentSpritePosition = [self position];
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    CGRect box = [self adjustedBoundingBox];
+    
+    double divFactor = 2.0;
+    if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
+        divFactor = 4.0;
+    }
+    
+    double minLimit = (box.size.width/divFactor);
+    double maxLimit = screenSize.width-(box.size.width/divFactor);
+    
+    // Clamp for iPhone, iPhone 4, or iPod touch
+    if (currentSpritePosition.x < minLimit) {
+        [self setPosition:ccp(minLimit, currentSpritePosition.y)];
+        ret = YES;
         
-        // Clamp for the iPad
-        if (currentSpritePosition.x < 30.0f) {
-            [self setPosition:ccp(30.0f, currentSpritePosition.y)];
-        } else if (currentSpritePosition.x > 1000.0f) {
-            [self setPosition:ccp(1000.0f, currentSpritePosition.y)];
-        }
-        
-    } else {
-        
-        CGRect box = [self adjustedBoundingBox];
-        
-        double divFactor = 2.0;
-        if ([[CCDirector sharedDirector] enableRetinaDisplay: YES]) {
-            divFactor = 4.0;
-        }
-        
-        double minLimit = (box.size.width/divFactor);
-        double maxLimit = screenSize.width-(box.size.width/divFactor);
-        
-        // Clamp for iPhone, iPhone 4, or iPod touch
-        if (currentSpritePosition.x < minLimit) {
-            [self setPosition:ccp(minLimit, currentSpritePosition.y)];
-            ret = YES;
-            
-        } else if (currentSpritePosition.x > maxLimit) {
-            [self setPosition:ccp(maxLimit, currentSpritePosition.y)];
-            ret = YES;
-        } 
+    } else if (currentSpritePosition.x > maxLimit) {
+        [self setPosition:ccp(maxLimit, currentSpritePosition.y)];
+        ret = YES;
     }
     
     return ret;

@@ -15,6 +15,8 @@
 
 @interface Cameraman : GameCharacter {
     
+    double originalConstVelocity;
+    
     NSArray *fermoFrameArray;
     
     NSArray *camminaAnimationArray;

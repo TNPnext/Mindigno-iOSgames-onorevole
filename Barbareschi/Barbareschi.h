@@ -18,6 +18,7 @@
     
     SneakyJoystick *joystick;
     SneakyButton *attackButton;
+    double originalConstVelocity;
     
     //
     CCSpriteFrame *fermoFrame;

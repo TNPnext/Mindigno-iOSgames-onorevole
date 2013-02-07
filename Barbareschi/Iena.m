@@ -14,9 +14,8 @@
 @implementation Iena
 
 - (void)spostatiVersoSx:(BOOL)yOrNot barbareschi:(GameObject*)barbareschi conTempo:(ccTime)deltaTime {
-
-    double constVelocity = -0.6;
     
+    double constVelocity = originalConstVelocity;
     if (!yOrNot) {
         constVelocity = -constVelocity;
     }
@@ -317,6 +316,11 @@
         [self initAnimations];
         
         indiceSoundToPlay = 0;
+        
+        originalConstVelocity = -0.6;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            originalConstVelocity = originalConstVelocity * 2;
+        }
     }
     return self;
 }

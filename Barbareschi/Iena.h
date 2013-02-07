@@ -15,6 +15,8 @@
 
 @interface Iena : GameCharacter {
     
+    double originalConstVelocity;
+    
     NSArray *fermoFrameArray;
     
     NSArray *camminaAnimationArray;
