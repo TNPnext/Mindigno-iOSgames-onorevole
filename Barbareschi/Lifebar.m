@@ -26,7 +26,7 @@
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             length = 120;
-            heightScaling += 0.78;
+            heightScaling += 0.65;
         }
         
         //Se è retina (quindi iphone 5, 4 e 4S
