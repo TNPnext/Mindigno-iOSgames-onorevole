@@ -98,6 +98,7 @@
                       [CCDelayTime actionWithDuration:2],
                       [CCCallFunc actionWithTarget:self selector:@selector(playLastSound)],
                       nil];
+            
             break;
             
         default:
@@ -161,9 +162,6 @@
     //Non serve perchè fanno da limite la iena e il cameraman
     //[self checkAndClampSpritePosition];
     
-    //Da 0 a 1
-    double sogliaJoystick = 0.8;
-    
     if ((self.characterState == kStateFermo) || (self.characterState == kStateCammina)) {
         
         if (attackButton.active) {
@@ -172,7 +170,7 @@
             BOOL isClicked = self.prevCharacterState != kStateAttacco_pugno || self.prevCharacterState != kStateAttacco_calcio;
             
             if (isClicked) {
-                CCLOG(@"attackButton was pressed");
+                //CCLOG(@"attackButton was pressed");
                 
                 [self playNextSound];
                 
@@ -184,7 +182,7 @@
                 attaccaConPugno = !attaccaConPugno;
             }
             
-        } else if (fabs(joystick.velocity.x) >= sogliaJoystick) {
+        } else if (fabs(joystick.velocity.x) > 0) {
             
             if (self.characterState != kStateCammina)
                 [self changeState:kStateCammina];
@@ -209,6 +207,8 @@
     if ([self numberOfRunningActions] == 0) {
         if ([iena characterHealth] <= 0.0f && [cameraman characterHealth] <= 0.0f) {
             [self changeState: kStateEsulta];
+            
+            CCLOG(@"Fine partita a: %f sec.", [[GameManager sharedGameManager] timeFromPlay]);
         }
     }
     

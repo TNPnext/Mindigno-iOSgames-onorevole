@@ -5,8 +5,9 @@
 #define kNuvoleSpriteZValue 10
 #define kGameplaySpriteBatchNodeZValue 25
 #define kBarbareschiSpriteZValue 50
-#define kFinalGameSpriteZValue 90
-#define kHeaderSpriteZValue 95
+#define kFinalGameSpriteZValue 80
+#define kPointsSpriteZValue 85
+#define kHeaderSpriteZValue 90
 #define kControlSpriteZValue 100
 
 
@@ -16,16 +17,18 @@
 #define kNuvolaSpriteTagValue 3
 #define kLifebarIenaSpriteTagValue 4
 #define kLifebarCameramanSpriteTagValue 5
+#define kPointsLabelSpriteTagValue 6
 
 
-#define kBarbareschiIenaDamage 3
-#define kBarbareschiCameramanDamage 4
+#define kBarbareschiIenaDamage 30
+#define kBarbareschiCameramanDamage 40
 
 
 typedef enum {
     
     kNoSceneUninitialized=0,
     kMainMenuScene=1,
+    kVideoScene=2,
     kGameLevel1=101
     
 } SceneTypes;

@@ -14,6 +14,8 @@
 #import "Lifebar.h"
 #import "Constants.h"
 #import "GameManager.h"
+#import "Flurry.h"
+#import "PointTable.h"
 
 @implementation GameplayLayer
 
@@ -213,6 +215,18 @@
         
         //
         
+        int fontSize = 16;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            fontSize = 32;
+        }
+        PointTable *pointTable = [PointTable labelWithString:@"0" fontName:@"Arial" fontSize: fontSize];
+        
+        [pointTable setAnchorPoint:ccp(0.5, 0.0)];
+        [pointTable setPosition: ccp(screenSize.width/2.0, 0.0)];
+        [self addChild:pointTable z:kPointsSpriteZValue tag:kPointsLabelSpriteTagValue];
+        
+        //
+        
         gameOverLayer = [[GameOverLayer node] retain];
         addedGameOverLayer = NO;
         
@@ -231,17 +245,38 @@
     return self;
 }
 
+- (void)moveAndAnimatePointsLabel {
+    
+    PointTable *pointTable = (PointTable*)[self getChildByTag: kPointsLabelSpriteTagValue];
+    
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    id action = [CCSpawn actions:
+                 [CCMoveTo actionWithDuration:0.5 position:ccp(screenSize.width * 0.72, screenSize.height * 0.15)],
+                 [CCScaleTo actionWithDuration:0.5 scale:1.5],
+                 nil];
+    
+    [pointTable runAction: action];
+}
+
 -(void) update:(ccTime)deltaTime {
+    
+    [[GameManager sharedGameManager] sumTime: deltaTime];
     
     BOOL giocoFinito = [[GameManager sharedGameManager] hasPlayerDied];
     if (giocoFinito && !addedGameOverLayer) {
         
+        [Flurry logEvent:@"Game finish" timed:YES];
         addedGameOverLayer = YES;
         
+        //Per evitare che venga premuto per sbaglio un tasto sul layer finale
+        [CCTouchDispatcher sharedDispatcher].dispatchEvents = NO;
         [self addChild: gameOverLayer z:kFinalGameSpriteZValue];
         
         [self removeChild:joystickBase cleanup:YES];
         [self removeChild:attackButtonBase cleanup:YES];
+        
+        [self moveAndAnimatePointsLabel];
     }
     
     CCArray *listOfGameObjects = [spriteBatchNodeGamePlay children];

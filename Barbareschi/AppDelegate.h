@@ -13,8 +13,10 @@
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
+    UINavigationController *navController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, readonly) RootViewController *viewController;
 
 @end

@@ -8,12 +8,14 @@
 
 #import "MainMenuLayer.h"
 #import "GameManager.h"
+#import "Flurry.h"
 
 @implementation MainMenuLayer
 
 - (void) playGameScene {
     
-    [[GameManager sharedGameManager] runSceneWithID:kGameLevel1];
+    [Flurry logEvent:@"Play button pressed" timed:YES];
+    [[GameManager sharedGameManager] runSceneWithID:kVideoScene];
 }
 
 -(void)playPostIntro {

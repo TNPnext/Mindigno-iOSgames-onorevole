@@ -10,6 +10,7 @@
 #import "Cameraman.h"
 #import "Lifebar.h"
 #import "GameManager.h"
+#import "PointTable.h"
 
 @implementation Iena
 
@@ -140,6 +141,7 @@
     CharacterStates barbareschiState = barbareschi.characterState;
     
     Lifebar *lifebar = (Lifebar*)[[[self parent] parent] getChildByTag: kLifebarIenaSpriteTagValue];
+    PointTable *pointTable = (PointTable*)[[[self parent] parent] getChildByTag: kPointsLabelSpriteTagValue];
     
     if (barbareschiState == kStateEsulta)
         return; // Nothing to do.
@@ -189,6 +191,10 @@
             self.characterHealth -= [barbareschi getWeaponDamage];
             [lifebar setLife: self.characterHealth];
             
+            int currentPoints = [[GameManager sharedGameManager] addPoints];
+            [pointTable setStringWithAnimation: [NSString stringWithFormat:@"%d", currentPoints]];
+            
+            //Lancio il suono solo con il pugno. Per scelta quando tira il calcio non lo lancio.
             [self playNextSound];
         }
 
@@ -200,6 +206,9 @@
             
             self.characterHealth -= [barbareschi getWeaponDamage];
             [lifebar setLife: self.characterHealth];
+            
+            int currentPoints = [[GameManager sharedGameManager] addPoints];
+            [pointTable setStringWithAnimation: [NSString stringWithFormat:@"%d", currentPoints]];
         }
     
     }

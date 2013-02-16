@@ -5,12 +5,13 @@
 
 #import "MainMenuScene.h"
 #import "GameScene.h"
+#import "VideoLayer.h"
 
 @implementation GameManager
 static GameManager* _sharedGameManager = nil;
 @synthesize isMusicON;
 @synthesize isSoundEffectsON;
-@synthesize hasPlayerDied;
+@synthesize hasPlayerDied, points, timeFromPlay;
 @synthesize managerSoundState;
 @synthesize listOfSoundEffectFiles;
 @synthesize soundEffectsState;
@@ -94,6 +95,9 @@ static GameManager* _sharedGameManager = nil;
             break;
         case kMainMenuScene:
             result = @"kMainMenuScene";
+            break;
+        case kVideoScene:
+            result = @"kVideoScene";
             break;
         case kGameLevel1:
             result = @"kGameLevel1";
@@ -293,6 +297,7 @@ static GameManager* _sharedGameManager = nil;
         isMusicON = YES;
         isSoundEffectsON = YES;
         hasPlayerDied = NO;
+        points = 0;
         currentScene = kNoSceneUninitialized;
         hasAudioBeenInitialized = NO;
         soundEngine = nil;
@@ -304,6 +309,8 @@ static GameManager* _sharedGameManager = nil;
 
 - (void) resetGame {
     hasPlayerDied = NO;
+    points = 0;
+    timeFromPlay = 0.0;
 }
 
 -(void)runSceneWithID:(SceneTypes)sceneID {
@@ -311,10 +318,15 @@ static GameManager* _sharedGameManager = nil;
     SceneTypes oldScene = currentScene;
     currentScene = sceneID;
     id sceneToRun = nil;
+    BOOL transitionFade = NO;
     switch (sceneID) {
             
         case kMainMenuScene: 
             sceneToRun = [MainMenuScene node];
+            transitionFade = YES;
+            break;
+        case kVideoScene:
+            sceneToRun = [VideoLayer node];
             break;
         case kGameLevel1:
             [self resetGame];
@@ -333,36 +345,19 @@ static GameManager* _sharedGameManager = nil;
         return;
     }
     
-    /*
-    // Menu Scenes have a value of < 100
-    if (sceneID < 100) {
-        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-            
-            CGSize screenSize = [CCDirector sharedDirector].winSizeInPixels;
-            
-            if (screenSize.width == 960.0f) {
-                // iPhone 4 Retina
-                [sceneToRun setScaleX:0.9375f];
-                [sceneToRun setScaleY:0.8333f];
-                CCLOG(@"GameMgr:Scaling for iPhone 4 (retina)");
-                
-            } else {
-                [sceneToRun setScaleX:0.4688f];
-                [sceneToRun setScaleY:0.4166f];
-                CCLOG(@"GameMgr:Scaling for iPhone 3GS or older (non-retina)");
-            }
-        }
-    }
-     */
-    
     [self performSelectorInBackground:@selector(loadAudioForSceneWithID:) withObject:[NSNumber numberWithInt:currentScene]];
     
     if ([[CCDirector sharedDirector] runningScene] == nil) {
         [[CCDirector sharedDirector] runWithScene:sceneToRun];
         
     } else {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0f scene:sceneToRun]];
-        //[[CCDirector sharedDirector] replaceScene:sceneToRun];
+        
+        if (transitionFade) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0f scene:sceneToRun]];
+            
+        } else {
+            [[CCDirector sharedDirector] replaceScene:sceneToRun];
+        }
     }
     
     [self performSelectorInBackground:@selector(unloadAudioForSceneWithID:) withObject:[NSNumber numberWithInt:oldScene]];
@@ -386,6 +381,20 @@ static GameManager* _sharedGameManager = nil;
         CCLOG(@"%@%@",@"Failed to open url:",[urlToOpen description]);
         [self runSceneWithID:kMainMenuScene];
     }    
+}
+
+- (int) addPoints {
+
+    int totalPoint = 100;
+    
+    points += totalPoint/timeFromPlay;
+    
+    return points;
+}
+
+- (void) sumTime:(ccTime)delta {
+
+    timeFromPlay += delta;
 }
 
 @end

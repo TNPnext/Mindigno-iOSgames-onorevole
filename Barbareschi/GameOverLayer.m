@@ -8,19 +8,47 @@
 
 #import "GameOverLayer.h"
 #import "GameManager.h"
+#import "Flurry.h"
+#import "AppDelegate.h"
 
 @implementation GameOverLayer
 
 -(void)buttonIndignatiPressed {
     
+    [Flurry logEvent:@"Indignati button pressed" timed:YES];
     CCLOG(@"Indignati button pressed");
+    
     [[GameManager sharedGameManager] openSiteWithLinkType: kLinkTypeMindignoSite];
 }
 
 -(void)buttonGoToMenuPressed {
     
+    [Flurry logEvent:@"Go to menu button pressed" timed:YES];
     CCLOG(@"Go to menu button pressed");
+    
     [[GameManager sharedGameManager] runSceneWithID: kMainMenuScene];
+}
+
+-(void)buttonSharePressed {
+
+    [Flurry logEvent:@"Share button pressed" timed:YES];
+    CCLOG(@"Share button pressed");
+    
+    int punti = [[GameManager sharedGameManager] points];
+    NSString *textToShare = [NSString stringWithFormat:@"Ho fatto %d punti a questa app: %@", punti, APP_URL];
+    UIImage *imageToShare = [UIImage imageNamed:@"Icon.png"];
+    NSURL *urlToShare = [NSURL URLWithString:APP_URL];
+    
+    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities: nil];
+    
+    //This is an array of excluded activities to appear on the UIActivityViewController
+    activityVC.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    RootViewController* controller = [appDelegate viewController];
+    [controller presentViewController:activityVC animated:YES completion:nil];
 }
 
 -(id)init {
@@ -116,8 +144,12 @@
         
         id moveAction = [CCMoveTo actionWithDuration:1.0f position:ccp(screenSize.width * 0.78f, screenSize.height/2.4f)];
         id moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
-        //id playSound = [CCCallFunc actionWithTarget:self selector:@selector(playIntro)];
-        id sequenceAction = [CCSequence actions: moveEffect, nil];
+        
+        CCCallBlock* completion = [CCCallBlock actionWithBlock:^{
+            [CCTouchDispatcher sharedDispatcher].dispatchEvents = YES;
+        }];
+        
+        id sequenceAction = [CCSequence actions: moveEffect, completion, nil];
         
         [menuIndignati runAction:sequenceAction];
         
@@ -132,12 +164,12 @@
         
         [menuButtonBack setScaleX: scaleFactorButtonMenu];
         [menuButtonBack setScaleY: scaleFactorButtonMenu];
-        
+    
         CCMenu *menuButton = [CCMenu menuWithItems: menuButtonBack, nil];
         [menuButton setPosition: ccp(screenSize.width * -0.10f, screenSize.height * 0.20f)];
         [self addChild:menuButton];
 
-        moveAction = [CCMoveTo actionWithDuration:1.5f position:ccp(screenSize.width * 0.10f, screenSize.height * 0.20f)];
+        moveAction = [CCMoveTo actionWithDuration:1.5f position:ccp(screenSize.width * 0.082f, screenSize.height * 0.20f)];
         moveEffect = [CCEaseIn actionWithAction:moveAction rate:1.0f];
         sequenceAction = [CCSequence actions: moveEffect, nil];
         
@@ -145,30 +177,19 @@
         
         //
         
-        /*
         CCMenuItemImage *shareButton = [CCMenuItemImage
-                                        itemFromNormalImage:@"share.png"
-                                        selectedImage:@"share.png"
+                                        itemFromNormalImage:@"ShareButtonNormal.png"
+                                        selectedImage:@"ShareButtonSelected.png"
                                         disabledImage:nil
                                         target:self
                                         selector:@selector(buttonSharePressed)];
         
-        [shareButton setScaleX: 0.25];
-        [shareButton setScaleY: 0.25];
+        [shareButton setScaleX: scaleFactorButtonMenu];
+        [shareButton setScaleY: scaleFactorButtonMenu];
         
         CCMenu *menuShare = [CCMenu menuWithItems: shareButton, nil];
         [menuShare setPosition: ccp(screenSize.width * 0.88f, screenSize.height * 0.20f)];
         [self addChild:menuShare];
-         */
-        
-        //
-        
-        /*
-        CCLabelTTF *labelPunteggio = [CCLabelTTF labelWithString:@"108 pt" fontName:@"Arial" fontSize:28];
-        
-        [labelPunteggio setPosition: ccp(screenSize.width * 0.72, screenSize.height * 0.20)];
-        [self addChild:labelPunteggio];
-        */
     }
     
     return self;

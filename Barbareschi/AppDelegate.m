@@ -13,10 +13,12 @@
 #import "RootViewController.h"
 #import "GameScene.h"
 #import "GameManager.h"
+#import "Flurry.h"
 
 @implementation AppDelegate
 
 @synthesize window;
+@synthesize viewController;
 
 - (void) removeStartupFlicker
 {
@@ -41,6 +43,11 @@
 }
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    
+    //Flurry code
+    [Flurry startSession:@"7X64X7HGHNH5JTPNZXD7"];
+    //
+    
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -75,31 +82,20 @@
 	if( ! [director enableRetinaDisplay:YES] )
 		CCLOG(@"Retina Display Not supported");
 	
-	//
-	// VERY IMPORTANT:
-	// If the rotation is going to be controlled by a UIViewController
-	// then the device orientation should be "Portrait".
-	//
-	// IMPORTANT:
-	// By default, this template only supports Landscape orientations.
-	// Edit the RootViewController.m file to edit the supported orientations.
-	//
-#if GAME_AUTOROTATION == kGameAutorotationUIViewController
-	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
-#else
-	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
-#endif
-	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
     
 	// make the OpenGLView a child of the view controller
 	[viewController setView:glView];
-	
+    
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
+	//[window addSubview: viewController.view];
     //[window setRootViewController: viewController];
 	
+    navController = [[UINavigationController alloc] initWithRootViewController: viewController];
+    [navController setNavigationBarHidden:YES];
+    
+    [window setRootViewController: navController];
 	[window makeKeyAndVisible];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
@@ -145,7 +141,7 @@
 	[[director openGLView] removeFromSuperview];
 	
 	[viewController release];
-	
+	[navController release];
 	[window release];
 	
 	[director end];	
